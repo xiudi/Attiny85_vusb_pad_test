@@ -21,8 +21,8 @@ usb_init();
     /* Replace with your application code */
     while (1) 
     {
+		usb_keyboard_send();
     }
-
 	return 0;
 }
 

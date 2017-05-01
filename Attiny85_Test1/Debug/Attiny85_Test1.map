@@ -1,10 +1,10 @@
 Archive member included to satisfy reference by file (symbol)
 
-d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
-                              D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.2.118/gcc/dev/attiny85/avr25/crtattiny85.o (exit)
-d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_copy_data.o)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_exit.o)
+                              C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.1.102/gcc/dev/attiny85/avr25/crtattiny85.o (exit)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_copy_data.o)
                               usbdrv/usbdrv.o (__do_copy_data)
-d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_clear_bss.o)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_clear_bss.o)
                               usbkeyboard.o (__do_clear_bss)
 
 Allocating common symbols
@@ -24,23 +24,11 @@ usbRxBuf            0x16              usbdrv/usbdrv.o
 
 Discarded input sections
 
- .data          0x00000000        0x0 D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.2.118/gcc/dev/attiny85/avr25/crtattiny85.o
- .bss           0x00000000        0x0 D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.2.118/gcc/dev/attiny85/avr25/crtattiny85.o
+ .data          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.1.102/gcc/dev/attiny85/avr25/crtattiny85.o
+ .bss           0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.1.102/gcc/dev/attiny85/avr25/crtattiny85.o
  .text          0x00000000        0x0 device/osccal.o
  .data          0x00000000        0x0 device/osccal.o
  .bss           0x00000000        0x0 device/osccal.o
- .text.calibrateOscillator
-                0x00000000       0x8e device/osccal.o
- .debug_info    0x00000000      0x105 device/osccal.o
- .debug_abbrev  0x00000000       0x9d device/osccal.o
- .debug_loc     0x00000000      0x14e device/osccal.o
- .debug_aranges
-                0x00000000       0x20 device/osccal.o
- .debug_ranges  0x00000000       0x10 device/osccal.o
- .debug_line    0x00000000      0x12c device/osccal.o
- .debug_str     0x00000000      0x1eb device/osccal.o
- .comment       0x00000000       0x31 device/osccal.o
- .debug_frame   0x00000000       0x48 device/osccal.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
@@ -52,27 +40,11 @@ Discarded input sections
  .text.releaseAll
                 0x00000000       0x16 usbkeyboard.o
  .text.presskey
-                0x00000000       0x56 usbkeyboard.o
+                0x00000000       0x58 usbkeyboard.o
  .text.pressModifierKeys
                 0x00000000        0xc usbkeyboard.o
  .text.releaseModifierKeys
                 0x00000000        0xe usbkeyboard.o
- .text.usb_keyboard_send
-                0x00000000       0x56 usbkeyboard.o
- .text.usbFunctionSetup
-                0x00000000       0x3e usbkeyboard.o
- .bss.vusb_idle_rate
-                0x00000000        0x1 usbkeyboard.o
- .bss.reportBuffer
-                0x00000000        0x8 usbkeyboard.o
- .bss.keyboard_leds
-                0x00000000        0x1 usbkeyboard.o
- .bss.keyboard_keys
-                0x00000000        0x6 usbkeyboard.o
- .bss.keyboard_modifier_keys
-                0x00000000        0x1 usbkeyboard.o
- .progmem.data.usbDescriptorHidReport
-                0x00000000       0x3f usbkeyboard.o
  .text          0x00000000        0x0 usbdrv/oddebug.o
  .data          0x00000000        0x0 usbdrv/oddebug.o
  .bss           0x00000000        0x0 usbdrv/oddebug.o
@@ -81,80 +53,61 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 usbdrv/oddebug.o
  .debug_line    0x00000000       0x1a usbdrv/oddebug.o
- .debug_str     0x00000000      0x17d usbdrv/oddebug.o
+ .debug_str     0x00000000      0x179 usbdrv/oddebug.o
  .comment       0x00000000       0x31 usbdrv/oddebug.o
  .text          0x00000000        0x0 usbdrv/usbdrv.o
  .data          0x00000000        0x0 usbdrv/usbdrv.o
  .bss           0x00000000        0x0 usbdrv/usbdrv.o
- .text.usbSetInterrupt
-                0x00000000       0x44 usbdrv/usbdrv.o
- .text.usbPoll  0x00000000      0x26c usbdrv/usbdrv.o
- .bss.wasReset.1891
-                0x00000000        0x1 usbdrv/usbdrv.o
- .progmem.data.usbDescriptorConfiguration
-                0x00000000       0x22 usbdrv/usbdrv.o
- .progmem.data.usbDescriptorDevice
-                0x00000000       0x12 usbdrv/usbdrv.o
- .progmem.data.usbDescriptorStringDevice
-                0x00000000       0x14 usbdrv/usbdrv.o
- .progmem.data.usbDescriptorStringVendor
-                0x00000000       0x14 usbdrv/usbdrv.o
- .progmem.data.usbDescriptorString0
-                0x00000000        0x4 usbdrv/usbdrv.o
- .bss.usbMsgFlags
-                0x00000000        0x1 usbdrv/usbdrv.o
- .data.usbMsgLen
-                0x00000000        0x1 usbdrv/usbdrv.o
  .data          0x00000000        0x0 usbdrv/usbdrvasm.o
  .bss           0x00000000        0x0 usbdrv/usbdrvasm.o
- .text          0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
- .data          0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
- .bss           0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_exit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_exit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_exit.o)
  .text.libgcc.mul
-                0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_exit.o)
  .text.libgcc.div
-                0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
- .text.libgcc   0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_exit.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_exit.o)
  .text.libgcc.prologue
-                0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_exit.o)
  .text.libgcc.builtins
-                0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_exit.o)
  .text.libgcc.fmul
-                0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_exit.o)
  .text.libgcc.fixed
-                0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
- .text          0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_copy_data.o)
- .data          0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_copy_data.o)
- .bss           0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_copy_data.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_copy_data.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_copy_data.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_copy_data.o)
  .text.libgcc.mul
-                0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_copy_data.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_copy_data.o)
  .text.libgcc.div
-                0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_copy_data.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_copy_data.o)
  .text.libgcc.prologue
-                0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_copy_data.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_copy_data.o)
  .text.libgcc.builtins
-                0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_copy_data.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_copy_data.o)
  .text.libgcc.fmul
-                0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_copy_data.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_copy_data.o)
  .text.libgcc.fixed
-                0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_copy_data.o)
- .text          0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_clear_bss.o)
- .data          0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_clear_bss.o)
- .bss           0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_clear_bss.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_copy_data.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_clear_bss.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_clear_bss.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_clear_bss.o)
  .text.libgcc.mul
-                0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_clear_bss.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_clear_bss.o)
  .text.libgcc.div
-                0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_clear_bss.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_clear_bss.o)
  .text.libgcc.prologue
-                0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_clear_bss.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_clear_bss.o)
  .text.libgcc.builtins
-                0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_clear_bss.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_clear_bss.o)
  .text.libgcc.fmul
-                0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_clear_bss.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_clear_bss.o)
  .text.libgcc.fixed
-                0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_clear_bss.o)
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_clear_bss.o)
 
 Memory Configuration
 
@@ -170,7 +123,7 @@ user_signatures  0x00850000         0x00000400         rw !x
 
 Linker script and memory map
 
-LOAD D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.2.118/gcc/dev/attiny85/avr25/crtattiny85.o
+LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.1.102/gcc/dev/attiny85/avr25/crtattiny85.o
 LOAD device/osccal.o
 LOAD main.o
 LOAD usbkeyboard.o
@@ -178,13 +131,13 @@ LOAD usbdrv/oddebug.o
 LOAD usbdrv/usbdrv.o
 LOAD usbdrv/usbdrvasm.o
 START GROUP
-LOAD d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr25\libm.a
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr25\libm.a
 END GROUP
 START GROUP
-LOAD d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a
-LOAD d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr25\libm.a
-LOAD d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr25\libc.a
-LOAD D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.2.118/gcc/dev/attiny85/avr25\libattiny85.a
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr25\libm.a
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr25\libc.a
+LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.1.102/gcc/dev/attiny85/avr25\libattiny85.a
 END GROUP
                 0x00002000                __TEXT_REGION_LENGTH__ = DEFINED (__TEXT_REGION_LENGTH__)?__TEXT_REGION_LENGTH__:0x2000
                 0x0000ffa0                __DATA_REGION_LENGTH__ = DEFINED (__DATA_REGION_LENGTH__)?__DATA_REGION_LENGTH__:0xffa0
@@ -284,9 +237,9 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x3a4
+.text           0x00000000      0x95e
  *(.vectors)
- .vectors       0x00000000       0x1e D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.2.118/gcc/dev/attiny85/avr25/crtattiny85.o
+ .vectors       0x00000000       0x1e C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.1.102/gcc/dev/attiny85/avr25/crtattiny85.o
                 0x00000000                __vector_default
                 0x00000000                __vectors
  *(.vectors)
@@ -300,35 +253,54 @@ END GROUP
  *libprintf_flt.a:*(.progmem.data)
  *libc.a:*(.progmem.data)
  *(.progmem*)
-                0x0000001e                . = ALIGN (0x2)
+ .progmem.data.usbDescriptorHidReport
+                0x0000001e       0x3f usbkeyboard.o
+                0x0000001e                usbDescriptorHidReport
+ .progmem.data.usbDescriptorConfiguration
+                0x0000005d       0x22 usbdrv/usbdrv.o
+                0x0000005d                usbDescriptorConfiguration
+ .progmem.data.usbDescriptorDevice
+                0x0000007f       0x12 usbdrv/usbdrv.o
+                0x0000007f                usbDescriptorDevice
+ .progmem.data.usbDescriptorStringDevice
+                0x00000091       0x14 usbdrv/usbdrv.o
+                0x00000091                usbDescriptorStringDevice
+ .progmem.data.usbDescriptorStringVendor
+                0x000000a5       0x14 usbdrv/usbdrv.o
+                0x000000a5                usbDescriptorStringVendor
+ .progmem.data.usbDescriptorString0
+                0x000000b9        0x4 usbdrv/usbdrv.o
+                0x000000b9                usbDescriptorString0
+                0x000000be                . = ALIGN (0x2)
+ *fill*         0x000000bd        0x1 
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x0000001e                __ctors_start = .
+                0x000000be                __ctors_start = .
  *(.ctors)
-                0x0000001e                __ctors_end = .
-                0x0000001e                __dtors_start = .
+                0x000000be                __ctors_end = .
+                0x000000be                __dtors_start = .
  *(.dtors)
-                0x0000001e                __dtors_end = .
+                0x000000be                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x0000001e        0x0 D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.2.118/gcc/dev/attiny85/avr25/crtattiny85.o
-                0x0000001e                __init
+ .init0         0x000000be        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.1.102/gcc/dev/attiny85/avr25/crtattiny85.o
+                0x000000be                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x0000001e        0xc D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.2.118/gcc/dev/attiny85/avr25/crtattiny85.o
+ .init2         0x000000be        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.1.102/gcc/dev/attiny85/avr25/crtattiny85.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x0000002a       0x16 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_copy_data.o)
-                0x0000002a                __do_copy_data
- .init4         0x00000040       0x10 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_clear_bss.o)
-                0x00000040                __do_clear_bss
+ .init4         0x000000ca       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_copy_data.o)
+                0x000000ca                __do_copy_data
+ .init4         0x000000e0       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_clear_bss.o)
+                0x000000e0                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -339,43 +311,62 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000050        0x4 D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.2.118/gcc/dev/attiny85/avr25/crtattiny85.o
+ .init9         0x000000f0        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.1.102/gcc/dev/attiny85/avr25/crtattiny85.o
  *(.init9)
  *(.text)
- .text          0x00000054        0x2 D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.2.118/gcc/dev/attiny85/avr25/crtattiny85.o
-                0x00000054                __vector_1
-                0x00000054                __vector_12
-                0x00000054                __bad_interrupt
-                0x00000054                __vector_6
-                0x00000054                __vector_3
-                0x00000054                __vector_11
-                0x00000054                __vector_13
-                0x00000054                __vector_7
-                0x00000054                __vector_5
-                0x00000054                __vector_4
-                0x00000054                __vector_9
-                0x00000054                __vector_8
-                0x00000054                __vector_14
-                0x00000054                __vector_10
- .text          0x00000056      0x314 usbdrv/usbdrvasm.o
-                0x00000056                usbCrc16
-                0x00000080                usbCrc16Append
-                0x00000088                usbMeasureFrameLength
-                0x000000ae                __vector_2
-                0x0000036a                . = ALIGN (0x2)
+ .text          0x000000f4        0x2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.1.102/gcc/dev/attiny85/avr25/crtattiny85.o
+                0x000000f4                __vector_1
+                0x000000f4                __vector_12
+                0x000000f4                __bad_interrupt
+                0x000000f4                __vector_6
+                0x000000f4                __vector_3
+                0x000000f4                __vector_11
+                0x000000f4                __vector_13
+                0x000000f4                __vector_7
+                0x000000f4                __vector_5
+                0x000000f4                __vector_4
+                0x000000f4                __vector_9
+                0x000000f4                __vector_8
+                0x000000f4                __vector_14
+                0x000000f4                __vector_10
+ .text          0x000000f6      0x314 usbdrv/usbdrvasm.o
+                0x000000f6                usbCrc16
+                0x00000120                usbCrc16Append
+                0x00000128                usbMeasureFrameLength
+                0x0000014e                __vector_2
+                0x0000040a                . = ALIGN (0x2)
  *(.text.*)
- .text.main     0x0000036a        0x4 main.o
-                0x0000036a                main
+ .text.calibrateOscillator
+                0x0000040a       0x8e device/osccal.o
+                0x0000040a                calibrateOscillator
+ .text.main     0x00000498        0x6 main.o
+                0x00000498                main
+ .text.vusb_transfer_keyboard
+                0x0000049e       0x48 usbkeyboard.o
  .text.usb_init
-                0x0000036e       0x1c usbkeyboard.o
-                0x0000036e                usb_init
- .text.usbInit  0x0000038a       0x16 usbdrv/usbdrv.o
-                0x0000038a                usbInit
-                0x000003a0                . = ALIGN (0x2)
+                0x000004e6       0x1c usbkeyboard.o
+                0x000004e6                usb_init
+ .text.usb_keyboard_send
+                0x00000502       0xa8 usbkeyboard.o
+                0x00000502                usb_keyboard_send
+ .text.usbFunctionSetup
+                0x000005aa       0x80 usbkeyboard.o
+                0x000005aa                usbFunctionSetup
+ .text.usbFunctionWrite
+                0x0000062a       0x30 usbkeyboard.o
+                0x0000062a                usbFunctionWrite
+ .text.usbSetInterrupt
+                0x0000065a       0x44 usbdrv/usbdrv.o
+                0x0000065a                usbSetInterrupt
+ .text.usbPoll  0x0000069e      0x2a6 usbdrv/usbdrv.o
+                0x0000069e                usbPoll
+ .text.usbInit  0x00000944       0x16 usbdrv/usbdrv.o
+                0x00000944                usbInit
+                0x0000095a                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000003a0        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
-                0x000003a0                _exit
-                0x000003a0                exit
+ .fini9         0x0000095a        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_exit.o)
+                0x0000095a                _exit
+                0x0000095a                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -394,51 +385,75 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000003a0        0x4 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
+ .fini0         0x0000095a        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr25\libgcc.a(_exit.o)
  *(.fini0)
-                0x000003a4                _etext = .
+                0x0000095e                _etext = .
 
-.data           0x00800060        0x2 load address 0x000003a4
+.data           0x00800060        0x2 load address 0x0000095e
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
- .data.usbTxLen
+ .data.usbMsgLen
                 0x00800060        0x1 usbdrv/usbdrv.o
-                0x00800060                usbTxLen
+ .data.usbTxLen
+                0x00800061        0x1 usbdrv/usbdrv.o
+                0x00800061                usbTxLen
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
                 0x00800062                . = ALIGN (0x2)
- *fill*         0x00800061        0x1 
                 0x00800062                _edata = .
                 0x00800062                PROVIDE (__data_end, .)
 
-.bss            0x00800062       0x36
+.bss            0x00800062       0xce
                 0x00800062                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
+ .bss.last_req  0x00800062        0x3 usbkeyboard.o
+ .bss.vusb_idle_rate
+                0x00800065        0x1 usbkeyboard.o
+ .bss.kbuf_tail
+                0x00800066        0x1 usbkeyboard.o
+ .bss.kbuf_head
+                0x00800067        0x1 usbkeyboard.o
+ .bss.kbuf      0x00800068       0x80 usbkeyboard.o
+ .bss.keyboard_leds
+                0x008000e8        0x1 usbkeyboard.o
+                0x008000e8                keyboard_leds
+ .bss.keyboard_keys
+                0x008000e9        0x6 usbkeyboard.o
+                0x008000e9                keyboard_keys
+ .bss.keyboard_modifier_keys
+                0x008000ef        0x1 usbkeyboard.o
+                0x008000ef                keyboard_modifier_keys
+ .bss.keyboard_report
+                0x008000f0        0x8 usbkeyboard.o
+ .bss.wasReset.1776
+                0x008000f8        0x1 usbdrv/usbdrv.o
+ .bss.usbMsgFlags
+                0x008000f9        0x1 usbdrv/usbdrv.o
  *(COMMON)
- COMMON         0x00800062       0x36 usbdrv/usbdrv.o
-                0x00800062                usbTxBuf
-                0x0080006d                usbTxStatus1
-                0x00800079                usbDeviceAddr
-                0x0080007a                usbRxToken
-                0x0080007b                usbInputBufOffset
-                0x0080007c                usbMsgPtr
-                0x0080007e                usbRxLen
-                0x0080007f                usbNewDeviceAddr
-                0x00800080                usbCurrentTok
-                0x00800081                usbConfiguration
-                0x00800082                usbRxBuf
-                0x00800098                PROVIDE (__bss_end, .)
-                0x000003a4                __data_load_start = LOADADDR (.data)
-                0x000003a6                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x008000fa       0x36 usbdrv/usbdrv.o
+                0x008000fa                usbTxBuf
+                0x00800105                usbTxStatus1
+                0x00800111                usbDeviceAddr
+                0x00800112                usbRxToken
+                0x00800113                usbInputBufOffset
+                0x00800114                usbMsgPtr
+                0x00800116                usbRxLen
+                0x00800117                usbNewDeviceAddr
+                0x00800118                usbCurrentTok
+                0x00800119                usbConfiguration
+                0x0080011a                usbRxBuf
+                0x00800130                PROVIDE (__bss_end, .)
+                0x0000095e                __data_load_start = LOADADDR (.data)
+                0x00000960                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800098        0x0
+.noinit         0x00800130        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x00800098                _end = .
+                0x00800130                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -480,15 +495,16 @@ END GROUP
 
 .comment        0x00000000       0x30
  *(.comment)
- .comment       0x00000000       0x30 main.o
+ .comment       0x00000000       0x30 device/osccal.o
                                  0x31 (size before relaxing)
+ .comment       0x00000030       0x31 main.o
  .comment       0x00000030       0x31 usbkeyboard.o
  .comment       0x00000030       0x31 usbdrv/usbdrv.o
 
 .note.gnu.avr.deviceinfo
                 0x00000000       0x3c
  .note.gnu.avr.deviceinfo
-                0x00000000       0x3c D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.2.118/gcc/dev/attiny85/avr25/crtattiny85.o
+                0x00000000       0x3c C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.1.102/gcc/dev/attiny85/avr25/crtattiny85.o
 
 .note.gnu.build-id
  *(.note.gnu.build-id)
@@ -505,64 +521,73 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000       0xc8
+.debug_aranges  0x00000000       0xf8
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x20 main.o
+                0x00000000       0x20 device/osccal.o
  .debug_aranges
-                0x00000020       0x58 usbkeyboard.o
+                0x00000020       0x20 main.o
  .debug_aranges
-                0x00000078       0x30 usbdrv/usbdrv.o
+                0x00000040       0x68 usbkeyboard.o
  .debug_aranges
-                0x000000a8       0x20 usbdrv/usbdrvasm.o
+                0x000000a8       0x30 usbdrv/usbdrv.o
+ .debug_aranges
+                0x000000d8       0x20 usbdrv/usbdrvasm.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x1379
+.debug_info     0x00000000     0x169d
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0x420 D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.2.118/gcc/dev/attiny85/avr25/crtattiny85.o
- .debug_info    0x00000420       0x9f main.o
- .debug_info    0x000004bf      0x4d9 usbkeyboard.o
- .debug_info    0x00000998      0x94f usbdrv/usbdrv.o
- .debug_info    0x000012e7       0x92 usbdrv/usbdrvasm.o
+ .debug_info    0x00000000      0x420 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.1.102/gcc/dev/attiny85/avr25/crtattiny85.o
+ .debug_info    0x00000420      0x106 device/osccal.o
+ .debug_info    0x00000526       0xc3 main.o
+ .debug_info    0x000005e9      0x65c usbkeyboard.o
+ .debug_info    0x00000c45      0x9c8 usbdrv/usbdrv.o
+ .debug_info    0x0000160d       0x90 usbdrv/usbdrvasm.o
 
-.debug_abbrev   0x00000000      0x9b7
+.debug_abbrev   0x00000000      0xb40
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x3e8 D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.2.118/gcc/dev/attiny85/avr25/crtattiny85.o
- .debug_abbrev  0x000003e8       0x68 main.o
- .debug_abbrev  0x00000450      0x23d usbkeyboard.o
- .debug_abbrev  0x0000068d      0x316 usbdrv/usbdrv.o
- .debug_abbrev  0x000009a3       0x14 usbdrv/usbdrvasm.o
+ .debug_abbrev  0x00000000      0x3e8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.1.102/gcc/dev/attiny85/avr25/crtattiny85.o
+ .debug_abbrev  0x000003e8       0x9e device/osccal.o
+ .debug_abbrev  0x00000486       0x87 main.o
+ .debug_abbrev  0x0000050d      0x2e2 usbkeyboard.o
+ .debug_abbrev  0x000007ef      0x33d usbdrv/usbdrv.o
+ .debug_abbrev  0x00000b2c       0x14 usbdrv/usbdrvasm.o
 
-.debug_line     0x00000000     0x10cd
+.debug_line     0x00000000     0x1374
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000       0xf1 D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.2.118/gcc/dev/attiny85/avr25/crtattiny85.o
- .debug_line    0x000000f1       0x50 main.o
- .debug_line    0x00000141      0x2e0 usbkeyboard.o
- .debug_line    0x00000421      0x39a usbdrv/usbdrv.o
- .debug_line    0x000007bb      0x912 usbdrv/usbdrvasm.o
+ .debug_line    0x00000000       0xf1 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.1.102/gcc/dev/attiny85/avr25/crtattiny85.o
+ .debug_line    0x000000f1      0x12c device/osccal.o
+ .debug_line    0x0000021d       0xc6 main.o
+ .debug_line    0x000002e3      0x3ab usbkeyboard.o
+ .debug_line    0x0000068e      0x3d4 usbdrv/usbdrv.o
+ .debug_line    0x00000a62      0x912 usbdrv/usbdrvasm.o
 
-.debug_frame    0x00000000      0x118
+.debug_frame    0x00000000      0x180
  *(.debug_frame)
- .debug_frame   0x00000000       0x24 main.o
- .debug_frame   0x00000024       0x9c usbkeyboard.o
- .debug_frame   0x000000c0       0x58 usbdrv/usbdrv.o
+ .debug_frame   0x00000000       0x48 device/osccal.o
+ .debug_frame   0x00000048       0x24 main.o
+ .debug_frame   0x0000006c       0xbc usbkeyboard.o
+ .debug_frame   0x00000128       0x58 usbdrv/usbdrv.o
 
-.debug_str      0x00000000      0x75c
+.debug_str      0x00000000      0x858
  *(.debug_str)
- .debug_str     0x00000000      0x169 D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.2.118/gcc/dev/attiny85/avr25/crtattiny85.o
- .debug_str     0x00000169      0x158 main.o
-                                0x18c (size before relaxing)
- .debug_str     0x000002c1      0x1f8 usbkeyboard.o
-                                0x381 (size before relaxing)
- .debug_str     0x000004b9      0x2a3 usbdrv/usbdrv.o
-                                0x50e (size before relaxing)
+ .debug_str     0x00000000      0x169 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATtiny_DFP/1.1.102/gcc/dev/attiny85/avr25/crtattiny85.o
+ .debug_str     0x00000169      0x1b3 device/osccal.o
+                                0x1e7 (size before relaxing)
+ .debug_str     0x0000031c       0x2c main.o
+                                0x1a2 (size before relaxing)
+ .debug_str     0x00000348      0x296 usbkeyboard.o
+                                0x43c (size before relaxing)
+ .debug_str     0x000005de      0x27a usbdrv/usbdrv.o
+                                0x520 (size before relaxing)
 
-.debug_loc      0x00000000      0xcbb
+.debug_loc      0x00000000      0xe75
  *(.debug_loc)
- .debug_loc     0x00000000      0x392 usbkeyboard.o
- .debug_loc     0x00000392      0x929 usbdrv/usbdrv.o
+ .debug_loc     0x00000000      0x14e device/osccal.o
+ .debug_loc     0x0000014e      0x3e9 usbkeyboard.o
+ .debug_loc     0x00000537      0x93e usbdrv/usbdrv.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -582,11 +607,12 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x170
+.debug_ranges   0x00000000      0x160
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x10 main.o
- .debug_ranges  0x00000010       0x78 usbkeyboard.o
- .debug_ranges  0x00000088       0xe8 usbdrv/usbdrv.o
+ .debug_ranges  0x00000000       0x10 device/osccal.o
+ .debug_ranges  0x00000010       0x10 main.o
+ .debug_ranges  0x00000020       0x88 usbkeyboard.o
+ .debug_ranges  0x000000a8       0xb8 usbdrv/usbdrv.o
 
 .debug_macro
  *(.debug_macro)

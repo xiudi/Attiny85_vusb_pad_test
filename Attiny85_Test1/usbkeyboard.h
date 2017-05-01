@@ -12,6 +12,7 @@
 #include <avr/interrupt.h>
 #include <avr/pgmspace.h>
 #include <avr/wdt.h>
+#include <stdint.h>
 
 #define KEY_CTRL	0x01
 #define KEY_SHIFT	0x02
@@ -124,13 +125,13 @@
 #define KEYPAD_PERIOD	99		
 
 void usb_init();			// initialize everything
-uint8_t usb_keyboard_send();
 
 uint8_t releasekey(uint8_t key);
 uint8_t presskey(uint8_t key);
 void releaseAll();
 void pressModifierKeys(uint8_t key);
 void releaseModifierKeys(uint8_t key);
+uint8_t usb_keyboard_send();
 
 extern uint8_t keyboard_modifier_keys;
 extern uint8_t keyboard_keys[6];
