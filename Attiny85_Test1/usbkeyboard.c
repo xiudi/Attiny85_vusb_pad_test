@@ -69,9 +69,9 @@ void usb_init()
 	sei();
 }
 uint8_t releasekey(uint8_t key)
-{
+{uint8_t i;
 	uint8_t send_required=0;
-	for (uint8_t i=0; i < 6; i++) {
+	for ( i=0; i < 6; i++) {
 		if (keyboard_keys[i] == key) {
 			keyboard_keys[i] = 0;
 			send_required=1;
@@ -81,20 +81,20 @@ uint8_t releasekey(uint8_t key)
 	return send_required;
 }
 void releaseAll()
-{
-	for (uint8_t i=0; i < 6; i++) {
+{uint8_t i;
+	for ( i=0; i < 6; i++) {
 		keyboard_keys[i] = 0;
 	}
 	keyboard_modifier_keys=0;
 }
 uint8_t presskey(uint8_t key)
-{
-	for (uint8_t i=0; i < 6; i++) {
+{uint8_t i;
+	for ( i=0; i < 6; i++) {
 		if (keyboard_keys[i] == key) {
 			return 1;
 		}
 	}
-	for (uint8_t i=0; i < 6; i++) {
+	for ( i=0; i < 6; i++) {
 		if (keyboard_keys[i] == 0) {
 			keyboard_keys[i] = key;
 			return 1;
@@ -128,24 +128,24 @@ static void send_keyboard(report_keyboard_t *report){
 	usbPoll();
 	vusb_transfer_keyboard();
 }
+
 uint8_t usb_keyboard_send(){
 	uint8_t send_required=0;
 	usbPoll();
-	if (usbConfiguration && usbInterruptIsReady()) {		
-		keyboard_report.modifier = keyboard_modifier_keys;		
-		keyboard_report.keycode[0]=keyboard_keys[0];
-		keyboard_report.keycode[1]=keyboard_keys[1];
-		keyboard_report.keycode[2]=keyboard_keys[2];
-		keyboard_report.keycode[3]=keyboard_keys[3];
-		keyboard_report.keycode[4]=keyboard_keys[4];
-		keyboard_report.keycode[5]=keyboard_keys[5];
-		send_keyboard(&keyboard_report);
-		send_required=1;
-	}
-	vusb_transfer_keyboard();
+	if (usbConfiguration && usbInterruptIsReady()) {
+		send_required=0;
+		if(keyboard_report.modifier!=keyboard_modifier_keys){keyboard_report.modifier = keyboard_modifier_keys;send_required=1;}
+		if(keyboard_report.keycode[0]!=keyboard_keys[0]){keyboard_report.keycode[0]=keyboard_keys[0];send_required=1;}
+		if(keyboard_report.keycode[1]!=keyboard_keys[1]){keyboard_report.keycode[1]=keyboard_keys[1];send_required=1;}
+		if(keyboard_report.keycode[2]!=keyboard_keys[2]){keyboard_report.keycode[2]=keyboard_keys[2];send_required=1;}
+		if(keyboard_report.keycode[3]!=keyboard_keys[3]){keyboard_report.keycode[3]=keyboard_keys[3];send_required=1;}
+		if(keyboard_report.keycode[4]!=keyboard_keys[4]){keyboard_report.keycode[4]=keyboard_keys[4];send_required=1;}
+		if(keyboard_report.keycode[5]!=keyboard_keys[5]){keyboard_report.keycode[5]=keyboard_keys[5];send_required=1;}		
+		if(send_required==1){send_keyboard(&keyboard_report);}
+		else{usbPoll(); vusb_transfer_keyboard();}
+	}	
 	return send_required;
 }
-
 static struct {
 	uint16_t len;
 	enum {
@@ -156,32 +156,31 @@ static struct {
 
 usbMsgLen_t usbFunctionSetup(uchar data[8])
 {
-		usbRequest_t *rq = (usbRequest_t *)((void *)data);
-		 if((rq->bmRequestType & USBRQ_TYPE_MASK) == USBRQ_TYPE_CLASS){  
-			 if(rq->bRequest == USBRQ_HID_GET_REPORT){
-				 usbMsgPtr = (void *)&keyboard_report;
-				 return sizeof(keyboard_report);
-				 }
-			else if(rq->bRequest == USBRQ_HID_GET_IDLE){				 
-				 usbMsgPtr = &vusb_idle_rate;
-				 return 1;
-				 }
-			else if(rq->bRequest == USBRQ_HID_SET_IDLE){
-				 vusb_idle_rate = rq->wValue.bytes[1];	
-				 }
-			else if(rq->bRequest == USBRQ_HID_SET_REPORT){			
-				 if (rq->wValue.word == 0x0200 && rq->wIndex.word == 0) {				
-					 last_req.kind = SET_LED;
-					 last_req.len = rq->wLength.word;
-				 }
-				 return USB_NO_MSG; 				
-			 }		 
-		 }	
-		return 0;
+	usbRequest_t *rq = (usbRequest_t *)((void *)data);
+	if((rq->bmRequestType & USBRQ_TYPE_MASK) == USBRQ_TYPE_CLASS){
+		if(rq->bRequest == USBRQ_HID_GET_REPORT){
+			usbMsgPtr = (void *)&keyboard_report;
+			return sizeof(keyboard_report);
+		}
+		else if(rq->bRequest == USBRQ_HID_GET_IDLE){
+			usbMsgPtr = &vusb_idle_rate;
+			return 1;
+		}
+		else if(rq->bRequest == USBRQ_HID_SET_IDLE){
+			vusb_idle_rate = rq->wValue.bytes[1];
+		}
+		else if(rq->bRequest == USBRQ_HID_SET_REPORT){
+			if (rq->wValue.word == 0x0200 && rq->wIndex.word == 0) {
+				last_req.kind = SET_LED;
+				last_req.len = rq->wLength.word;
+			}
+			return USB_NO_MSG;
+		}
+	}
+	return 0;
 }
 uchar usbFunctionWrite(uchar *data, uchar len)
 {
-	//Êä³öÖ¸Ê¾µÆ
 	if (last_req.len == 0) {
 		return -1;
 	}
@@ -198,6 +197,7 @@ uchar usbFunctionWrite(uchar *data, uchar len)
 	}
 	return 1;
 }
+
 
 
 

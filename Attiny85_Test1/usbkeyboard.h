@@ -7,12 +7,13 @@
 #ifndef USBKEYBOARD_H_
 #define USBKEYBOARD_H_
 
-#include "usbdrv/usbdrv.h"
-#include <util/delay.h>
-#include <avr/interrupt.h>
+
+//#include <Arduino.h>
 #include <avr/pgmspace.h>
-#include <avr/wdt.h>
-#include <stdint.h>
+#include <avr/interrupt.h>
+#include <util/delay.h>
+#include <string.h>
+#include "usbdrv/usbdrv.h"
 
 #define KEY_CTRL	0x01
 #define KEY_SHIFT	0x02
@@ -123,6 +124,9 @@
 #define KEYPAD_9	97	
 #define KEYPAD_0	98		
 #define KEYPAD_PERIOD	99		
+#ifdef __cplusplus
+extern "C"{
+#endif 
 
 void usb_init();			// initialize everything
 
@@ -132,6 +136,9 @@ void releaseAll();
 void pressModifierKeys(uint8_t key);
 void releaseModifierKeys(uint8_t key);
 uint8_t usb_keyboard_send();
+#ifdef __cplusplus
+} // extern "C"
+#endif
 
 extern uint8_t keyboard_modifier_keys;
 extern uint8_t keyboard_keys[6];

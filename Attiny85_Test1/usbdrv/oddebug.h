@@ -24,7 +24,7 @@ the output and a memory block to dump in hex ('data' and 'len').
 
 
 #ifndef F_CPU
-#   define  F_CPU   12000000    /* 12 MHz */
+#   define  F_CPU   16500000    /* 12 MHz */
 #endif
 
 /* make sure we have the UART defines: */
