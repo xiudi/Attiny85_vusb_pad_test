@@ -4,6 +4,8 @@
 
 device\osccal.c
 
+Functions.c
+
 main.c
 
 usbkeyboard.c

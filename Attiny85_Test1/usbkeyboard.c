@@ -68,48 +68,7 @@ void usb_init()
 	usbDeviceConnect();
 	sei();
 }
-uint8_t releasekey(uint8_t key)
-{uint8_t i;
-	uint8_t send_required=0;
-	for ( i=0; i < 6; i++) {
-		if (keyboard_keys[i] == key) {
-			keyboard_keys[i] = 0;
-			send_required=1;
-			break;
-		}
-	}
-	return send_required;
-}
-void releaseAll()
-{uint8_t i;
-	for ( i=0; i < 6; i++) {
-		keyboard_keys[i] = 0;
-	}
-	keyboard_modifier_keys=0;
-}
-uint8_t presskey(uint8_t key)
-{uint8_t i;
-	for ( i=0; i < 6; i++) {
-		if (keyboard_keys[i] == key) {
-			return 1;
-		}
-	}
-	for ( i=0; i < 6; i++) {
-		if (keyboard_keys[i] == 0) {
-			keyboard_keys[i] = key;
-			return 1;
-		}
-	}
-	return 0;
-}
-void pressModifierKeys(uint8_t key)
-{
-	keyboard_modifier_keys|=key;
-}
-void releaseModifierKeys(uint8_t key)
-{
-	keyboard_modifier_keys&=~key;
-}
+
 static void vusb_transfer_keyboard()
 {
 	if (usbInterruptIsReady()) {

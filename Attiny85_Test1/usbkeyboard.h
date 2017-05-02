@@ -7,8 +7,6 @@
 #ifndef USBKEYBOARD_H_
 #define USBKEYBOARD_H_
 
-
-//#include <Arduino.h>
 #include <avr/pgmspace.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
@@ -129,12 +127,6 @@ extern "C"{
 #endif 
 
 void usb_init();			// initialize everything
-
-uint8_t releasekey(uint8_t key);
-uint8_t presskey(uint8_t key);
-void releaseAll();
-void pressModifierKeys(uint8_t key);
-void releaseModifierKeys(uint8_t key);
 uint8_t usb_keyboard_send();
 #ifdef __cplusplus
 } // extern "C"

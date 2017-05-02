@@ -14,13 +14,42 @@
 #include <avr/interrupt.h>
 #include <string.h>
 #include "usbkeyboard.h"
+#include "Functions.h"
 int main(void)
 {
-
+pinMode(0,INPUT);digitalWrite(0,HIGH);
+pinMode(1,OUTPUT);digitalWrite(1,LOW);
+pinMode(2,INPUT);digitalWrite(2,HIGH);
 usb_init();
     /* Replace with your application code */
     while (1) 
-    {
+    {		
+			if(digitalRead(0)==LOW)
+			{
+				keyboard_modifier_keys=0;
+				keyboard_keys[0]=KEY_A;
+				keyboard_keys[1]=0;
+				keyboard_keys[2]=0;
+				keyboard_keys[3]=0;
+				keyboard_keys[4]=0;
+				keyboard_keys[5]=0;
+			}
+			else if(digitalRead(2)==LOW){
+				keyboard_modifier_keys=KEY_CTRL;
+				memset(keyboard_keys, 0, 6);
+			}
+			else{
+				keyboard_modifier_keys=0;
+				memset(keyboard_keys, 0, 6);
+			}
+			uint8_t i=0;
+			for ( i=0; i<3; i++){
+				if((keyboard_leds&(1<<i))==(1<<i))
+				{ digitalWrite(1,HIGH);}
+				else{ digitalWrite(1,LOW);}
+			}
+
+		
 		usb_keyboard_send();
     }
 	return 0;

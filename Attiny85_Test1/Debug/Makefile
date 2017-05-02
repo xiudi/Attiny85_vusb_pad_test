@@ -40,6 +40,7 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../device/osccal.c \
+../Functions.c \
 ../main.c \
 ../usbkeyboard.c \
 ../usbdrv/oddebug.c \
@@ -55,6 +56,7 @@ ASM_SRCS +=
 
 OBJS +=  \
 device/osccal.o \
+Functions.o \
 main.o \
 usbkeyboard.o \
 usbdrv/oddebug.o \
@@ -63,6 +65,7 @@ usbdrv/usbdrvasm.o
 
 OBJS_AS_ARGS +=  \
 device/osccal.o \
+Functions.o \
 main.o \
 usbkeyboard.o \
 usbdrv/oddebug.o \
@@ -71,6 +74,7 @@ usbdrv/usbdrvasm.o
 
 C_DEPS +=  \
 device/osccal.d \
+Functions.d \
 main.d \
 usbkeyboard.d \
 usbdrv/oddebug.d \
@@ -79,6 +83,7 @@ usbdrv/usbdrvasm.d
 
 C_DEPS_AS_ARGS +=  \
 device/osccal.d \
+Functions.d \
 main.d \
 usbkeyboard.d \
 usbdrv/oddebug.d \
@@ -99,6 +104,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 
