@@ -179,6 +179,9 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="scancode-ascii-table.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="usbdrv\usbconfig.h">
       <SubType>compile</SubType>
     </Compile>
