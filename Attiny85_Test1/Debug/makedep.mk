@@ -8,6 +8,8 @@ Functions.c
 
 main.c
 
+Ascii2scancode.c
+
 usbkeyboard.c
 
 usbdrv\oddebug.c

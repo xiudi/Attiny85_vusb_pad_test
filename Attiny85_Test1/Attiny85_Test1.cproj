@@ -179,7 +179,7 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="scancode-ascii-table.h">
+    <Compile Include="Ascii2scancode.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="usbdrv\usbconfig.h">
@@ -218,28 +218,7 @@
     <Folder Include="usbdrv" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="device\Readme.txt">
-      <SubType>compile</SubType>
-    </None>
     <None Include="usbdrv\asmcommon.inc">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="usbdrv\Changelog.txt">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="usbdrv\CommercialLicense.txt">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="usbdrv\License.txt">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="usbdrv\Readme.txt">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="usbdrv\USB-ID-FAQ.txt">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="usbdrv\USB-IDs-for-free.txt">
       <SubType>compile</SubType>
     </None>
     <None Include="usbdrv\usbdrvasm.asm">

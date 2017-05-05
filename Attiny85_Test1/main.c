@@ -15,13 +15,14 @@
 #include <string.h>
 
 #include "Functions.h"
-int main(void)
+
+/*
+int keyboardTest_t85(void)
 {
 pinMode(0,INPUT);digitalWrite(0,HIGH);
 pinMode(1,OUTPUT);digitalWrite(1,LOW);
 pinMode(2,INPUT);digitalWrite(2,HIGH);
 usb_init();
-    /* Replace with your application code */
     while (1) 
     {		
 			if(digitalRead(0)==LOW)
@@ -47,11 +48,20 @@ usb_init();
 				if((keyboard_leds&(1<<i))==(1<<i))
 				{ digitalWrite(1,HIGH);}
 				else{ digitalWrite(1,LOW);}
-			}
-
-		
+			}		
 		usb_keyboard_send();
     }
 	return 0;
 }
-
+*/
+int main(void)
+{
+	usb_init();
+	_delay_ms(1000);
+	keyPrintWord2();
+	while (1)
+	{
+		_delay_ms(1000);
+	}
+	return 0;
+}

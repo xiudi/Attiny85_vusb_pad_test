@@ -4,10 +4,12 @@
  * Created: 2017/5/2 22:26:44
  *  Author: Administrator
  */ 
-#include <avr/io.h>
-#include "usbkeyboard.h"
+
 #ifndef FUNCTIONS_H_
 #define FUNCTIONS_H_
+
+#include <avr/io.h>
+#include "usbkeyboard.h"
 
 #define LOW 0
 #define HIGH 1
@@ -22,5 +24,8 @@ void releaseModifierKeys(uint8_t key);
 void pinMode(uint8_t IO,uint8_t value);
 void digitalWrite(uint8_t IO,uint8_t value);
 uint8_t digitalRead(uint8_t IO);
-
+void keyPrintChar(char chr);
+void keyPrintChar2(uint8_t chr);
+void keyPrintWord(char * word);
+void keyPrintWord2(void);
 #endif /* FUNCTIONS_H_ */

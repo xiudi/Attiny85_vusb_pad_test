@@ -1,30 +1,7 @@
-/*
-* Functions.c
-*
-* Created: 2017/5/2 22:26:56
-*  Author: Administrator
-*/
+
 #include "Functions.h"
 #include <string.h>
-#include "scancode-ascii-table.h"
-
-void keyPrintWord(uchar * word)
-{
-uint8_t i=0;
-uint8_t len=sizeof(word);
-for(i=0;i<len;i++){
-keyPrintChar(word[i]);
-}
-}
-void keyPrintChar(uint8_t chr)
-{
-    releaseAll();usb_keyboard_send();
-	  uint8_t data = pgm_read_byte_near(ascii_to_scan_code_table + (chr - 8));
-	  keyboard_keys[0]=data & 0b01111111, 
-	  keyboard_modifier_keys= (data >> 7) ? (1<<5) : 0;
-	  usb_keyboard_send();
-	releaseAll();usb_keyboard_send();
-}
+#include <avr/pgmspace.h>
 
 uint8_t releasekey(uint8_t key)
 {uint8_t i;
@@ -105,3 +82,5 @@ uint8_t digitalRead(uint8_t IO){
 	return value;
 }
 #endif
+
+

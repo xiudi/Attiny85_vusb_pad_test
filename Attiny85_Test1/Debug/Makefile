@@ -42,6 +42,7 @@ C_SRCS +=  \
 ../device/osccal.c \
 ../Functions.c \
 ../main.c \
+../Ascii2scancode.c \
 ../usbkeyboard.c \
 ../usbdrv/oddebug.c \
 ../usbdrv/usbdrv.c
@@ -58,6 +59,7 @@ OBJS +=  \
 device/osccal.o \
 Functions.o \
 main.o \
+Ascii2scancode.o \
 usbkeyboard.o \
 usbdrv/oddebug.o \
 usbdrv/usbdrv.o \
@@ -67,6 +69,7 @@ OBJS_AS_ARGS +=  \
 device/osccal.o \
 Functions.o \
 main.o \
+Ascii2scancode.o \
 usbkeyboard.o \
 usbdrv/oddebug.o \
 usbdrv/usbdrv.o \
@@ -76,6 +79,7 @@ C_DEPS +=  \
 device/osccal.d \
 Functions.d \
 main.d \
+Ascii2scancode.d \
 usbkeyboard.d \
 usbdrv/oddebug.d \
 usbdrv/usbdrv.d \
@@ -85,6 +89,7 @@ C_DEPS_AS_ARGS +=  \
 device/osccal.d \
 Functions.d \
 main.d \
+Ascii2scancode.d \
 usbkeyboard.d \
 usbdrv/oddebug.d \
 usbdrv/usbdrv.d \
@@ -104,6 +109,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

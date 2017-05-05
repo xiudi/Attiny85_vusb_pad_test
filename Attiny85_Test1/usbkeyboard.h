@@ -66,19 +66,19 @@
 #define KEY_ESC		41
 #define KEY_BACKSPACE	42	
 #define KEY_TAB		43
-#define KEY_SPACE	44	
+#define KEY_SPACE	44	46
 #define KEY_MINUS	45
 #define KEY_EQUAL	46
 #define KEY_LEFT_BRACE	47
 #define KEY_RIGHT_BRACE	48
-#define KEY_BACKSLASH	49
+#define KEY_BACKSLASH	49 
 #define KEY_NUMBER	50
-#define KEY_SEMICOLON	51
-#define KEY_QUOTE	52
-#define KEY_TILDE	53
-#define KEY_COMMA	54
-#define KEY_PERIOD	55
-#define KEY_SLASH	56
+#define KEY_SEMICOLON	51//;
+#define KEY_QUOTE	52//"
+#define KEY_TILDE	53//~
+#define KEY_COMMA	54//,
+#define KEY_PERIOD	55//.
+#define KEY_SLASH	56// /
 #define KEY_CAPS_LOCK	57
 #define KEY_F1		58
 #define KEY_F2		59
