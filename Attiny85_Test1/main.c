@@ -16,8 +16,7 @@
 
 #include "Functions.h"
 
-/*
-int keyboardTest_t85(void)
+int main(void)
 {
 pinMode(0,INPUT);digitalWrite(0,HIGH);
 pinMode(1,OUTPUT);digitalWrite(1,LOW);
@@ -27,13 +26,7 @@ usb_init();
     {		
 			if(digitalRead(0)==LOW)
 			{
-				keyboard_modifier_keys=0;
-				keyboard_keys[0]=KEY_A;
-				keyboard_keys[1]=0;
-				keyboard_keys[2]=0;
-				keyboard_keys[3]=0;
-				keyboard_keys[4]=0;
-				keyboard_keys[5]=0;
+				keyPrintWord("Less is more!");
 			}
 			else if(digitalRead(2)==LOW){
 				keyboard_modifier_keys=KEY_CTRL;
@@ -51,17 +44,5 @@ usb_init();
 			}		
 		usb_keyboard_send();
     }
-	return 0;
-}
-*/
-int main(void)
-{
-	usb_init();
-	_delay_ms(1000);
-	keyPrintWord2();
-	while (1)
-	{
-		_delay_ms(1000);
-	}
 	return 0;
 }

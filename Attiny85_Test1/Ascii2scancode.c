@@ -3,6 +3,7 @@
 
 #include <avr/pgmspace.h>
 #include "Functions.h"
+
 // Lookup table to convert ascii characters in to keyboard scan codes
 // Format: most signifficant bit indicates if scan code should be sent with shift modifier
 // remaining 7 bits are to be used as scan code number.
@@ -150,38 +151,33 @@ const uint8_t ascii_to_scan_code_table[] PROGMEM = {
 };
 
 void keyPrintWord(char * word)
-{
+{releaseAll();
 	uint8_t i=0;
 	uint8_t len=strlen(word);
 	for(i=0;i<len;i++){
-		keyPrintChar(word[i]);
+		while(1){
+			if(usbConfiguration && usbInterruptIsReady()){				
+				uint8_t data = pgm_read_byte_near(ascii_to_scan_code_table + word[i]);
+				keyPrintChar2(data);
+				break;
+			}usbPoll();
+		}
 	}
 }
-void keyPrintChar(char chr)
-{
-	releaseAll();usb_keyboard_send();
-	uint8_t data = pgm_read_byte_near(ascii_to_scan_code_table + chr);
-	keyboard_keys[0]=data & 0b01111111;//abs删除正负号
-	keyboard_modifier_keys= (data >> 7) ? 0x20 : 0x00;//shift加了128
-	usb_keyboard_send();
-	releaseAll();usb_keyboard_send();
-}
 void keyPrintWord2()
-{
+{releaseAll();
 	uint8_t i=0;
 	uint8_t len=sizeof(words2)/sizeof(words2[0]);
 	for(i=0;i<len;i++){
-		uint8_t data = pgm_read_byte_near(words2 + i);
-		keyPrintChar2(data);
+		while(1){
+			if(usbConfiguration && usbInterruptIsReady()){
+				uint8_t data = pgm_read_byte_near(words2 + i);
+				keyPrintChar2(data);
+				break;
+			}usbPoll();
+		}
 	}
 }
-void keyPrintChar2(uint8_t data)
-{
-	releaseAll();usb_keyboard_send();
-	keyboard_keys[0]=data & 0b01111111;//abs删除正负号
-	keyboard_modifier_keys= (data >> 7) ? 0x20 : 0x00;//shift加了128
-	usb_keyboard_send();
-	releaseAll();usb_keyboard_send();
-}
+
 
 #endif

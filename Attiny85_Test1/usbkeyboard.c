@@ -157,6 +157,24 @@ uchar usbFunctionWrite(uchar *data, uchar len)
 	return 1;
 }
 
-
+void keyPrintChar2(uint8_t data)
+{	
+	while(1){usbPoll();
+	if(usbConfiguration && usbInterruptIsReady()){
+		keyboard_report.modifier = (data >> 7) ? 0x20 : 0x00;//shift加了128
+		keyboard_report.keycode[0]=data & 0b01111111;//abs删除正负号
+		send_keyboard(&keyboard_report);
+		break;
+	}
+	}
+	while(1){usbPoll();
+	if(usbConfiguration && usbInterruptIsReady()){
+		keyboard_report.modifier = 0;//shift加了128
+		keyboard_report.keycode[0]=0;//abs删除正负号
+		send_keyboard(&keyboard_report);
+		break;
+	}
+	}usbPoll();
+}
 
 
