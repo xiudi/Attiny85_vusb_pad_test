@@ -15,7 +15,9 @@
 #define HIGH 1
 #define INPUT 0
 #define OUTPUT 1
-
+#ifdef __cplusplus
+} // extern "C"
+#endif
 uint8_t releasekey(uint8_t key);
 uint8_t presskey(uint8_t key);
 void releaseAll();
@@ -26,4 +28,7 @@ void digitalWrite(uint8_t IO,uint8_t value);
 uint8_t digitalRead(uint8_t IO);
 void keyPrintWord(char * word);
 void keyPrintWord2(void);
+#ifdef __cplusplus
+} // extern "C"
+#endif
 #endif /* FUNCTIONS_H_ */
