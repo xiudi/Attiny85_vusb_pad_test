@@ -182,6 +182,9 @@
     <Compile Include="Ascii2scancode.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="TypeCode.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="usbdrv\usbconfig.h">
       <SubType>compile</SubType>
     </Compile>

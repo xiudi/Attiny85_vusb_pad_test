@@ -15,6 +15,8 @@
 #define HIGH 1
 #define INPUT 0
 #define OUTPUT 1
+
+
 #ifdef __cplusplus
 } // extern "C"
 #endif
@@ -28,7 +30,9 @@ void digitalWrite(uint8_t IO,uint8_t value);
 uint8_t digitalRead(uint8_t IO);
 void keyPrintWord(char * word);
 void keyPrintWord2(void);
+int getwords2length();
 #ifdef __cplusplus
 } // extern "C"
 #endif
+extern const  uint8_t  words2[] PROGMEM;
 #endif /* FUNCTIONS_H_ */

@@ -22,24 +22,23 @@ pinMode(0,INPUT);digitalWrite(0,HIGH);
 pinMode(1,OUTPUT);digitalWrite(1,LOW);
 pinMode(2,INPUT);digitalWrite(2,HIGH);
 usb_init();
+uint8_t sign0=0;
     while (1) 
     {		
 			if(digitalRead(0)==LOW)
 			{
-				keyPrintWord("Less is more!");
-			}
-			else if(digitalRead(2)==LOW){
-				keyboard_modifier_keys=KEY_CTRL;
-				memset(keyboard_keys, 0, 6);
-			}
+				if(sign0==0)keyPrintWord2();
+				sign0=1;
+			}		
 			else{
+			    sign0=0;
 				keyboard_modifier_keys=0;
 				memset(keyboard_keys, 0, 6);
 			}
 			uint8_t i=0;
 			for ( i=0; i<3; i++){
 				if((keyboard_leds&(1<<i))==(1<<i))
-				{ digitalWrite(1,HIGH);}
+				{ digitalWrite(1,HIGH);break;}
 				else{ digitalWrite(1,LOW);}
 			}		
 		usb_keyboard_send();

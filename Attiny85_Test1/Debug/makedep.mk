@@ -10,6 +10,8 @@ main.c
 
 Ascii2scancode.c
 
+TypeCode.c
+
 usbkeyboard.c
 
 usbdrv\oddebug.c

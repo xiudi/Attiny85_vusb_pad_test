@@ -1,6 +1,3 @@
-#ifndef Ascii2scancode_H_
-#define Ascii2scancode_H_
-
 #include <avr/pgmspace.h>
 #include "Functions.h"
 
@@ -8,10 +5,7 @@
 // Format: most signifficant bit indicates if scan code should be sent with shift modifier
 // remaining 7 bits are to be used as scan code number.
 
-const  uint8_t  words2[]PROGMEM ={
-	11,8,15,15,18,44,26,18,21,15,7,158
-	//hello world£¡
-};
+
 const uint8_t ascii_to_scan_code_table[] PROGMEM = {
 	// /* ASCII:   0 */
 	0,
@@ -167,7 +161,7 @@ void keyPrintWord(char * word)
 void keyPrintWord2()
 {releaseAll();
 	uint8_t i=0;
-	uint8_t len=sizeof(words2)/sizeof(words2[0]);
+	uint8_t len=getwords2length();
 	for(i=0;i<len;i++){
 		while(1){
 			if(usbConfiguration && usbInterruptIsReady()){
@@ -178,6 +172,3 @@ void keyPrintWord2()
 		}
 	}
 }
-
-
-#endif
