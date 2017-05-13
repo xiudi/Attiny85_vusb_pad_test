@@ -28,13 +28,13 @@ uint8_t sign0=0;
 			if(digitalRead(0)==LOW)
 			{
 				if(sign0==0)keyPrintWord2();
-				sign0=1;
-			}		
+				sign0=0x20;				
+			}					
 			else{
-			    sign0=0;
 				keyboard_modifier_keys=0;
 				memset(keyboard_keys, 0, 6);
 			}
+			if(sign0>0)sign0-=1;
 			uint8_t i=0;
 			for ( i=0; i<3; i++){
 				if((keyboard_leds&(1<<i))==(1<<i))

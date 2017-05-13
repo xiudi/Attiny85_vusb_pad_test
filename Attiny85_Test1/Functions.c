@@ -82,5 +82,3 @@ uint8_t digitalRead(uint8_t IO){
 	return value;
 }
 #endif
-
-
