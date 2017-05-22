@@ -4,7 +4,7 @@
 uchar  reportBuffer[2];
 static uint8_t    idleRate;
 
-int setup1key(void){
+int setup(void){
 DDRB &= ~(1<<0);
 PORTB|= (1<<0);
 usb_init();
