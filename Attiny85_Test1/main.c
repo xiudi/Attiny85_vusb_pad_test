@@ -12,7 +12,7 @@
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 #include <avr/interrupt.h>
-#include <string.h>
+//#include <string.h>
 
 #include "usbdrv/usbconfig.h"
 #ifdef ONEKEY
