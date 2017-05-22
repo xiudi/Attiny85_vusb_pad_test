@@ -14,9 +14,9 @@
 #include <avr/interrupt.h>
 #include <string.h>
 
-#include "Functions.h"
+#include "1key/usbkeyboard2.h"
 
-int main(void)
+int 6keys(void)
 {
 pinMode(0,INPUT);digitalWrite(0,HIGH);
 pinMode(1,OUTPUT);digitalWrite(1,LOW);
@@ -44,4 +44,8 @@ uint8_t sign0=0;
 		usb_keyboard_send();
     }
 	return 0;
+}
+
+int main(){
+
 }

@@ -161,25 +161,25 @@
     <CleanTarget>clean</CleanTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="device\osccal.c">
+    <Compile Include="1key\usbkeyboard2.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="device\osccal.h">
+    <Compile Include="1key\usbkeyboard2.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="device\osctune.h">
+    <Compile Include="6keys\Functions.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Functions.c">
+    <Compile Include="6keys\Functions.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Functions.h">
+    <Compile Include="6keys\usbkeyboard.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="6keys\usbkeyboard.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Ascii2scancode.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="TypeCode.c">
@@ -188,19 +188,10 @@
     <Compile Include="usbdrv\usbconfig.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="usbkeyboard.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="usbkeyboard.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="usbdrv\oddebug.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="usbdrv\oddebug.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="usbdrv\usbconfig-prototype.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="usbdrv\usbdrv.c">
@@ -217,7 +208,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="device" />
+    <Folder Include="6keys" />
+    <Folder Include="1key" />
     <Folder Include="usbdrv" />
   </ItemGroup>
   <ItemGroup>

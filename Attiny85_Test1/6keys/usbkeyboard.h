@@ -11,7 +11,7 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 #include <string.h>
-#include "usbdrv/usbdrv.h"
+#include "../usbdrv/usbdrv.h"
 
 #define KEY_CTRL	0x01
 #define KEY_SHIFT	0x02

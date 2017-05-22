@@ -33,18 +33,18 @@ LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
-../device \
+../6keys \
+../1key \
 ../usbdrv
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../device/osccal.c \
-../Functions.c \
+../1key/usbkeyboard2.c \
+../6keys/Functions.c \
+../6keys/usbkeyboard.c \
 ../main.c \
-../Ascii2scancode.c \
 ../TypeCode.c \
-../usbkeyboard.c \
 ../usbdrv/oddebug.c \
 ../usbdrv/usbdrv.c
 
@@ -57,45 +57,41 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-device/osccal.o \
-Functions.o \
+1key/usbkeyboard2.o \
+6keys/Functions.o \
+6keys/usbkeyboard.o \
 main.o \
-Ascii2scancode.o \
 TypeCode.o \
-usbkeyboard.o \
 usbdrv/oddebug.o \
 usbdrv/usbdrv.o \
 usbdrv/usbdrvasm.o
 
 OBJS_AS_ARGS +=  \
-device/osccal.o \
-Functions.o \
+1key/usbkeyboard2.o \
+6keys/Functions.o \
+6keys/usbkeyboard.o \
 main.o \
-Ascii2scancode.o \
 TypeCode.o \
-usbkeyboard.o \
 usbdrv/oddebug.o \
 usbdrv/usbdrv.o \
 usbdrv/usbdrvasm.o
 
 C_DEPS +=  \
-device/osccal.d \
-Functions.d \
+1key/usbkeyboard2.d \
+6keys/Functions.d \
+6keys/usbkeyboard.d \
 main.d \
-Ascii2scancode.d \
 TypeCode.d \
-usbkeyboard.d \
 usbdrv/oddebug.d \
 usbdrv/usbdrv.d \
 usbdrv/usbdrvasm.d
 
 C_DEPS_AS_ARGS +=  \
-device/osccal.d \
-Functions.d \
+1key/usbkeyboard2.d \
+6keys/Functions.d \
+6keys/usbkeyboard.d \
 main.d \
-Ascii2scancode.d \
 TypeCode.d \
-usbkeyboard.d \
 usbdrv/oddebug.d \
 usbdrv/usbdrv.d \
 usbdrv/usbdrvasm.d
@@ -129,9 +125,14 @@ LINKER_SCRIPT_DEP+=
 
 
 
+1key/%.o: ../1key/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)D:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16500000UL  -I"D:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.1.102\include"  -O3 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=attiny85 -B "D:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.1.102\gcc\dev\attiny85" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
 
-
-device/%.o: ../device/%.c
+6keys/%.o: ../6keys/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)D:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16500000UL  -I"D:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.1.102\include"  -O3 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=attiny85 -B "D:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.1.102\gcc\dev\attiny85" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

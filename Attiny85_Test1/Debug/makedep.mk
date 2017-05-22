@@ -2,17 +2,15 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-device\osccal.c
+1key\usbkeyboard2.c
 
-Functions.c
+6keys\Functions.c
+
+6keys\usbkeyboard.c
 
 main.c
 
-Ascii2scancode.c
-
 TypeCode.c
-
-usbkeyboard.c
 
 usbdrv\oddebug.c
 

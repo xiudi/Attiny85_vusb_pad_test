@@ -4,7 +4,7 @@
 * Created: 2017/4/27 17:19:55
 *  Author: Administrator
 */
-const PROGMEM char usbHidReportDescriptor[63] = { /* USB report descriptor */
+const PROGMEM char usbHidReportDescriptor[] = { /* USB report descriptor */
 	0x05, 0x01,          // Usage Page (Generic Desktop),
 	0x09, 0x06,          // Usage (Keyboard),
 	0xA1, 0x01,          // Collection (Application),
