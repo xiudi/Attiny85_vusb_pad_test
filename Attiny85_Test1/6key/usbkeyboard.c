@@ -1,6 +1,6 @@
 #include "usbkeyboard.h"
 #ifdef SIXKEY
-const PROGMEM char usbHidReportDescriptor[] = { /* USB report descriptor */
+const PROGMEM char usbHidReportDescriptor[63] = { /* USB report descriptor */
 	0x05, 0x01,          // Usage Page (Generic Desktop),
 	0x09, 0x06,          // Usage (Keyboard),
 	0xA1, 0x01,          // Collection (Application),
@@ -172,5 +172,5 @@ void keyPrintChar2(uint8_t data)
 	}
 	}usbPoll();
 }
-
 #endif
+

@@ -12,11 +12,11 @@
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 #include <avr/interrupt.h>
+#include <string.h>
 
+#include "6key/Functions.h"
 
-#include "6keys/Functions.h"
-
-
-int main(){
-return setup6keys();
+int main(void)
+{
+return setup();
 }

@@ -3,8 +3,7 @@
 #include <string.h>
 #include <avr/pgmspace.h>
 #ifdef SIXKEY
-int setup6keys(void)
-{
+int setup(){
 	pinMode(0,INPUT);digitalWrite(0,HIGH);
 	pinMode(1,OUTPUT);digitalWrite(1,LOW);
 	pinMode(2,INPUT);digitalWrite(2,HIGH);
@@ -31,6 +30,7 @@ int setup6keys(void)
 		usb_keyboard_send();
 	}
 	return 0;
+
 }
 
 uint8_t releasekey(uint8_t key)
@@ -279,5 +279,4 @@ void keyPrintWord2()
 		}
 	}
 }
-
 #endif

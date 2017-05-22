@@ -6,9 +6,7 @@
  */ 
 #ifndef USBKEYBOARD_H_
 #define USBKEYBOARD_H_
-
 #define  SIXKEY
-
 #include <avr/pgmspace.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>

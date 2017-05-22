@@ -6,11 +6,11 @@
 
 1key\usbkeyboard2.c
 
-6keys\Functions.c
+6key\Functions.c
 
-6keys\TypeCode.c
+6key\TypeCode.c
 
-6keys\usbkeyboard.c
+6key\usbkeyboard.c
 
 main.c
 
