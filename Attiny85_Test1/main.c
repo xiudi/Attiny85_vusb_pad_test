@@ -14,15 +14,9 @@
 #include <avr/interrupt.h>
 
 
-#include "1key/usbkeyboard2.h"
+#include "6keys/Functions.h"
 
 
 int main(){
-usb_init();
-while (1)
-{
-
-}
-return 0;
-
+return setup6keys();
 }

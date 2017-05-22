@@ -8,7 +8,7 @@
 
 #ifndef USBKEYBOARD2_H_
 #define USBKEYBOARD2_H_
-#define  ONEKEY 1
+//#define  ONEKEY 
 
 #include "../usbdrv/usbdrv.h"
 #include <util/delay.h>
@@ -23,6 +23,7 @@ extern const  uint8_t  words2[] PROGMEM;
 void usb_init();
 int getwords2length();
 void keyPrintWord2();
+int setup1key();
 /*
 #define KEY_CTRL	0x01
 #define KEY_SHIFT	0x02

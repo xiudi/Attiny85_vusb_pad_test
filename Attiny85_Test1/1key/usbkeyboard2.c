@@ -3,6 +3,24 @@
 #ifdef ONEKEY
 uchar  reportBuffer[2];
 static uint8_t    idleRate;
+
+int setup1key(void){
+DDRB &= ~(1<<0);
+PORTB|= (1<<0);
+usb_init();
+uint8_t sign0=0;
+while (1)
+{
+	if((PINB&(1<<0))==0)
+	{
+		if(sign0==0)keyPrintWord2();
+		sign0=0x20;
+	}
+	if(sign0>0)sign0--;
+	usbPoll();
+}
+return 0;
+}
 const PROGMEM char usbHidReportDescriptor[] = { /* USB report descriptor */
 	0x05, 0x01,                    // USAGE_PAGE (Generic Desktop)
 	0x09, 0x06,                    // USAGE (Keyboard)
@@ -36,18 +54,13 @@ void usb_init()
 	usbDeviceConnect();
 	sei();
 }
-static void send_keyboard(uchar *reportBuffer)
-{
-	usbPoll();
-	if(usbInterruptIsReady())  usbSetInterrupt(reportBuffer, sizeof(reportBuffer));
-}
 static void keyPrintChar2(uint8_t data)
 {
 	while(1){usbPoll();
 		if(usbConfiguration && usbInterruptIsReady()){
 			reportBuffer[0] = (data >> 7) ? 0x20 : 0x00;//shift加了128
 			reportBuffer[1] =data & 0b01111111;//abs删除正负号
-			send_keyboard(reportBuffer);
+			 usbSetInterrupt(reportBuffer, sizeof(reportBuffer));
 			break;
 		}
 	}
@@ -55,7 +68,7 @@ static void keyPrintChar2(uint8_t data)
 		if(usbConfiguration && usbInterruptIsReady()){
 			reportBuffer[0] = 0;
 			reportBuffer[1] =0;
-			send_keyboard(reportBuffer);
+			 usbSetInterrupt(reportBuffer, sizeof(reportBuffer));
 			break;
 		}
 	}usbPoll();
