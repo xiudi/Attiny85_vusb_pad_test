@@ -7,12 +7,14 @@
 #ifndef USBKEYBOARD_H_
 #define USBKEYBOARD_H_
 
+
 #include <avr/pgmspace.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
 #include <string.h>
 #include "../usbdrv/usbdrv.h"
 
+#ifdef SIXKEY
 #define KEY_CTRL	0x01
 #define KEY_SHIFT	0x02
 #define KEY_ALT		0x04
@@ -138,5 +140,5 @@ extern uint8_t keyboard_modifier_keys;
 extern uint8_t keyboard_keys[6];
 extern volatile uint8_t keyboard_leds;
 
-
+#endif
 #endif /* USBKEYBOARD_H_ */

@@ -1,9 +1,5 @@
-#include "usbkeyboard.h"/*
-* usbkeyboard.c
-*
-* Created: 2017/4/27 17:19:55
-*  Author: Administrator
-*/
+#include "usbkeyboard.h"
+#ifdef SIXKEY
 const PROGMEM char usbHidReportDescriptor[] = { /* USB report descriptor */
 	0x05, 0x01,          // Usage Page (Generic Desktop),
 	0x09, 0x06,          // Usage (Keyboard),
@@ -177,4 +173,4 @@ void keyPrintChar2(uint8_t data)
 	}usbPoll();
 }
 
-
+#endif

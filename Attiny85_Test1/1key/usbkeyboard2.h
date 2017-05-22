@@ -8,17 +8,22 @@
 
 #ifndef USBKEYBOARD2_H_
 #define USBKEYBOARD2_H_
-
+#define  ONEKEY 1
 
 #include "../usbdrv/usbdrv.h"
 #include <util/delay.h>
 #include <avr/pgmspace.h>
 #include <avr/interrupt.h>
 
+#ifdef ONEKEY
 
 uint8_t    reportBuffer[2];
+extern const  uint8_t  words2[] PROGMEM;
 
-
+void usb_init();
+int getwords2length();
+void keyPrintWord2();
+/*
 #define KEY_CTRL	0x01
 #define KEY_SHIFT	0x02
 #define KEY_ALT		0x04
@@ -128,5 +133,7 @@ uint8_t    reportBuffer[2];
 #define KEYPAD_9	97
 #define KEYPAD_0	98
 #define KEYPAD_PERIOD	99
+*/
 
-#endif /* USBKEYBOARD_H_ */
+#endif
+#endif

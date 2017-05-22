@@ -40,11 +40,12 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../1key/TypeCode.c \
 ../1key/usbkeyboard2.c \
 ../6keys/Functions.c \
+../6keys/TypeCode.c \
 ../6keys/usbkeyboard.c \
 ../main.c \
-../TypeCode.c \
 ../usbdrv/oddebug.c \
 ../usbdrv/usbdrv.c
 
@@ -57,41 +58,45 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+1key/TypeCode.o \
 1key/usbkeyboard2.o \
 6keys/Functions.o \
+6keys/TypeCode.o \
 6keys/usbkeyboard.o \
 main.o \
-TypeCode.o \
 usbdrv/oddebug.o \
 usbdrv/usbdrv.o \
 usbdrv/usbdrvasm.o
 
 OBJS_AS_ARGS +=  \
+1key/TypeCode.o \
 1key/usbkeyboard2.o \
 6keys/Functions.o \
+6keys/TypeCode.o \
 6keys/usbkeyboard.o \
 main.o \
-TypeCode.o \
 usbdrv/oddebug.o \
 usbdrv/usbdrv.o \
 usbdrv/usbdrvasm.o
 
 C_DEPS +=  \
+1key/TypeCode.d \
 1key/usbkeyboard2.d \
 6keys/Functions.d \
+6keys/TypeCode.d \
 6keys/usbkeyboard.d \
 main.d \
-TypeCode.d \
 usbdrv/oddebug.d \
 usbdrv/usbdrv.d \
 usbdrv/usbdrvasm.d
 
 C_DEPS_AS_ARGS +=  \
+1key/TypeCode.d \
 1key/usbkeyboard2.d \
 6keys/Functions.d \
+6keys/TypeCode.d \
 6keys/usbkeyboard.d \
 main.d \
-TypeCode.d \
 usbdrv/oddebug.d \
 usbdrv/usbdrv.d \
 usbdrv/usbdrvasm.d
@@ -110,6 +115,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

@@ -161,6 +161,9 @@
     <CleanTarget>clean</CleanTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="1key\TypeCode.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="1key\usbkeyboard2.c">
       <SubType>compile</SubType>
     </Compile>
@@ -173,6 +176,9 @@
     <Compile Include="6keys\Functions.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="6keys\TypeCode.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="6keys\usbkeyboard.c">
       <SubType>compile</SubType>
     </Compile>
@@ -180,9 +186,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="TypeCode.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="usbdrv\usbconfig.h">

@@ -1,15 +1,19 @@
 /*
- * Functions.h
- *
- * Created: 2017/5/2 22:26:44
- *  Author: Administrator
- */ 
+* Functions.h
+*
+* Created: 2017/5/2 22:26:44
+*  Author: Administrator
+*/
+
 
 #ifndef FUNCTIONS_H_
 #define FUNCTIONS_H_
 
+
+
 #include <avr/io.h>
 #include "usbkeyboard.h"
+#ifdef SIXKEY
 
 #define LOW 0
 #define HIGH 1
@@ -31,8 +35,10 @@ uint8_t digitalRead(uint8_t IO);
 void keyPrintWord(char * word);
 void keyPrintWord2(void);
 int getwords2length();
+int setup6keys(void);
 #ifdef __cplusplus
 } // extern "C"
 #endif
 extern const  uint8_t  words2[] PROGMEM;
-#endif /* FUNCTIONS_H_ */
+#endif 
+#endif  /* FUNCTIONS_H_ */
