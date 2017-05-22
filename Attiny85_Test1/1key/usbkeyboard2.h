@@ -8,7 +8,7 @@
 
 #ifndef USBKEYBOARD2_H_
 #define USBKEYBOARD2_H_
-//#define  ONEKEY 
+
 
 #include "../usbdrv/usbdrv.h"
 #include <util/delay.h>
