@@ -40,7 +40,6 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../1key/TypeCode.c \
 ../1key/usbkeyboard2.c \
 ../6key/Functions.c \
 ../6key/TypeCode.c \
@@ -58,7 +57,6 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-1key/TypeCode.o \
 1key/usbkeyboard2.o \
 6key/Functions.o \
 6key/TypeCode.o \
@@ -69,7 +67,6 @@ usbdrv/usbdrv.o \
 usbdrv/usbdrvasm.o
 
 OBJS_AS_ARGS +=  \
-1key/TypeCode.o \
 1key/usbkeyboard2.o \
 6key/Functions.o \
 6key/TypeCode.o \
@@ -80,7 +77,6 @@ usbdrv/usbdrv.o \
 usbdrv/usbdrvasm.o
 
 C_DEPS +=  \
-1key/TypeCode.d \
 1key/usbkeyboard2.d \
 6key/Functions.d \
 6key/TypeCode.d \
@@ -91,7 +87,6 @@ usbdrv/usbdrv.d \
 usbdrv/usbdrvasm.d
 
 C_DEPS_AS_ARGS +=  \
-1key/TypeCode.d \
 1key/usbkeyboard2.d \
 6key/Functions.d \
 6key/TypeCode.d \
@@ -115,8 +110,6 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
-
-
 
 
 

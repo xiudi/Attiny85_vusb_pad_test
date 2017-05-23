@@ -2,8 +2,6 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-1key\TypeCode.c
-
 1key\usbkeyboard2.c
 
 6key\Functions.c

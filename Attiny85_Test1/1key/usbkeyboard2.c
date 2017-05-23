@@ -5,21 +5,28 @@ uchar  reportBuffer[2];
 static uint8_t    idleRate;
 
 int setup(void){
-DDRB &= ~(1<<0);
-PORTB|= (1<<0);
-usb_init();
-uint8_t sign0=0;
-while (1)
-{
-	if((PINB&(1<<0))==0)
+	
+	DDRB &= ~(1<<0);
+	DDRB |= (1<<1);
+	DDRB &= ~(1<<2);
+
+	PORTB|= (1<<0);
+	PORTB&= ~(1<<1);
+	PORTB|= (1<<2);
+	
+	usb_init();
+	uint8_t sign0=0;
+	while (1)
 	{
-		if(sign0==0)keyPrintWord2();
-		sign0=0x20;
+		if((PINB&(1<<0))==0)
+		{
+			if(sign0==0)keyPrintWord2();
+			sign0=0x20;
+		}
+		if(sign0>0)sign0--;
+		usbPoll();
 	}
-	if(sign0>0)sign0--;
-	usbPoll();
-}
-return 0;
+	return 0;
 }
 const PROGMEM char usbHidReportDescriptor[] = { /* USB report descriptor */
 	0x05, 0x01,                    // USAGE_PAGE (Generic Desktop)
@@ -60,7 +67,7 @@ static void keyPrintChar2(uint8_t data)
 		if(usbConfiguration && usbInterruptIsReady()){
 			reportBuffer[0] = (data >> 7) ? 0x20 : 0x00;//shift加了128
 			reportBuffer[1] =data & 0b01111111;//abs删除正负号
-			 usbSetInterrupt(reportBuffer, sizeof(reportBuffer));
+			usbSetInterrupt(reportBuffer, sizeof(reportBuffer));
 			break;
 		}
 	}
@@ -68,26 +75,27 @@ static void keyPrintChar2(uint8_t data)
 		if(usbConfiguration && usbInterruptIsReady()){
 			reportBuffer[0] = 0;
 			reportBuffer[1] =0;
-			 usbSetInterrupt(reportBuffer, sizeof(reportBuffer));
+			usbSetInterrupt(reportBuffer, sizeof(reportBuffer));
 			break;
 		}
 	}usbPoll();
 }
-void keyPrintWord2()
-{reportBuffer[0] = 0;
+void keyPrintWord2(){
+	reportBuffer[0] = 0;
 	reportBuffer[1] =0;
-	uint8_t i=0;
-	uint8_t len=getwords2length();
-	for(i=0;i<len;i++){
-		while(1){
-			if(usbConfiguration && usbInterruptIsReady()){
-				uint8_t data = pgm_read_byte_near(words2 + i);
-				keyPrintChar2(data);
-				break;
-			}usbPoll();
+	uint8_t i=0;	
+	uint8_t len=eeprom_read_byte((uchar *)0);
+		for(i=0;i<len;i++){
+			while(1){
+				if(usbConfiguration && usbInterruptIsReady()){
+					uint8_t data = eeprom_read_byte((uchar *)1 +i);
+					keyPrintChar2(data);
+					break;
+				}usbPoll();
+			}
 		}
-	}
 }
+
 usbMsgLen_t usbFunctionSetup(uchar data[8]) {
 	usbRequest_t    *rq = (usbRequest_t *)((void *)data);
 	usbMsgPtr = reportBuffer; //
@@ -95,6 +103,23 @@ usbMsgLen_t usbFunctionSetup(uchar data[8]) {
 		if (rq->bRequest == USBRQ_HID_GET_REPORT) {return 0;}
 		else if (rq->bRequest == USBRQ_HID_GET_IDLE) {return 0;}
 		else if (rq->bRequest == USBRQ_HID_SET_IDLE) {idleRate = rq->wValue.bytes[1];}
+	}
+	if ((rq->bmRequestType & USBRQ_TYPE_MASK) ==USBRQ_TYPE_VENDOR) {
+		if (rq->bRequest == 0x02) {
+			eeprom_busy_wait();
+			eeprom_write_byte ((uchar *)0 +rq->wIndex.bytes[0],rq->wValue.bytes[0]);
+			PORTB|=(1<<1);
+		return 0;}
+		if (rq->bRequest == 0x03) {
+			//结束写
+			eeprom_busy_wait();
+			PORTB&= ~(1<<1);
+		return 0;}
+		if (rq->bRequest == 0x01) {
+			//开始写
+			eeprom_is_ready();
+			PORTB&= ~(1<<1);
+		return 0;}
 	}
 	return 0;
 }
