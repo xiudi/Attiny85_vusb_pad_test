@@ -83,17 +83,17 @@ static void keyPrintChar2(uint8_t data)
 void keyPrintWord2(){
 	reportBuffer[0] = 0;
 	reportBuffer[1] =0;
-	uint8_t i=0;	
-	uint8_t len=eeprom_read_byte((uchar *)0);
-		for(i=0;i<len;i++){
-			while(1){
-				if(usbConfiguration && usbInterruptIsReady()){
-					uint8_t data = eeprom_read_byte((uchar *)1 +i);
-					keyPrintChar2(data);
-					break;
-				}usbPoll();
-			}
+	uint16_t i=0;
+	uint16_t len=eeprom_read_word((uint16_t *)0);
+	for(i=0;i<len;i++){
+		while(1){
+			if(usbConfiguration && usbInterruptIsReady()){
+				uint8_t data = eeprom_read_byte((uint8_t *)2 +i);
+				keyPrintChar2(data);
+				break;
+			}usbPoll();
 		}
+	}
 }
 
 usbMsgLen_t usbFunctionSetup(uchar data[8]) {
@@ -105,7 +105,12 @@ usbMsgLen_t usbFunctionSetup(uchar data[8]) {
 		else if (rq->bRequest == USBRQ_HID_SET_IDLE) {idleRate = rq->wValue.bytes[1];}
 	}
 	if ((rq->bmRequestType & USBRQ_TYPE_MASK) ==USBRQ_TYPE_VENDOR) {
-		if (rq->bRequest == 0x02) {
+		if (rq->bRequest == 0x16) {
+			eeprom_busy_wait();
+			eeprom_write_word ((uint16_t *)0 +rq->wIndex.word,rq->wValue.word);
+			PORTB|=(1<<1);
+		return 0;}
+		if (rq->bRequest == 0x08) {
 			eeprom_busy_wait();
 			eeprom_write_byte ((uchar *)0 +rq->wIndex.bytes[0],rq->wValue.bytes[0]);
 			PORTB|=(1<<1);
