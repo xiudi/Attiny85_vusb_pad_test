@@ -129,8 +129,9 @@ extern "C"{
 
 void usb_init();			// initialize everything
 uint8_t usb_keyboard_send();
-void keyPrintChar2(uint8_t data);
-
+void keyPrintEnglish(uint8_t data);
+ void keyPrintChinese(uint8_t data[5]);
+void keyPrintChar(usbWord_t data);
 #ifdef __cplusplus
 } // extern "C"
 #endif
