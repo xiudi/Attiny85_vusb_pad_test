@@ -113,7 +113,7 @@ void keyPrintChar(usbWord_t data){
 		keyPrintEnglish(data.bytes[0]);
 		}else{
 		uint16_t out=(uint16_t)data.word;
-		out|=0x8080;//汉字内码每个byte最高位为1
+		//out|=0x8080;//汉字内码每个byte最高位为1
 		uint8_t datachinese[5];
 		datachinese[4]=out%10;out=out/10;
 		datachinese[3]=out%10;out=out/10;
