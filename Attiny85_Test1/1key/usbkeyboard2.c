@@ -2,7 +2,7 @@
 
 #ifdef ONEKEY
 uchar  reportBuffer[2];
-static uint8_t    idleRate;
+static uint8_t idleRate=0;
 uint8_t pressing=1;
 
 const  char usbHidReportDescriptor[] PROGMEM= { /* USB report descriptor */
@@ -149,7 +149,7 @@ usbMsgLen_t usbFunctionSetup(uchar data[8]) {
 	usbMsgPtr = reportBuffer; //
 	if ((rq->bmRequestType & USBRQ_TYPE_MASK) == USBRQ_TYPE_CLASS) {
 		if (rq->bRequest == USBRQ_HID_GET_REPORT) {return 0;}
-		else if (rq->bRequest == USBRQ_HID_GET_IDLE) {return 0;}
+		else if (rq->bRequest == USBRQ_HID_GET_IDLE) {usbMsgPtr=&idleRate;}
 		else if (rq->bRequest == USBRQ_HID_SET_IDLE) {idleRate = rq->wValue.bytes[1];}
 	}
 	if ((rq->bmRequestType & USBRQ_TYPE_MASK) ==USBRQ_TYPE_VENDOR) {
