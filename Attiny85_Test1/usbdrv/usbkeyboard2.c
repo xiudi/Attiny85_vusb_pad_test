@@ -1,6 +1,5 @@
 #include "usbkeyboard2.h"
 
-#ifdef ONEKEY
 uchar  reportBuffer[2];
 static uint8_t idleRate=0;
 uint8_t pressing=1;
@@ -202,4 +201,3 @@ int setup(void){
 	}
 	return 0;
 }
-#endif
