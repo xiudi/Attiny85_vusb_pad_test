@@ -4,40 +4,6 @@ uchar  reportBuffer[2];
 static uint8_t idleRate=0;
 uint8_t pressing=1;
 
-const  char usbHidReportDescriptor[] PROGMEM= { /* USB report descriptor */
-	0x05, 0x01,                    // USAGE_PAGE (Generic Desktop)
-	0x09, 0x06,                    // USAGE (Keyboard)
-	0xa1, 0x01,                    // COLLECTION (Application)
-	0x05, 0x07,                    //   USAGE_PAGE (Keyboard)
-	0x19, 0xe0,                    //   USAGE_MINIMUM (Keyboard LeftControl)
-	0x29, 0xe7,                    //   USAGE_MAXIMUM (Keyboard Right GUI)
-	0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
-	0x25, 0x01,                    //   LOGICAL_MAXIMUM (1)
-	0x75, 0x01,                    //   REPORT_SIZE (1)
-	0x95, 0x08,                    //   REPORT_COUNT (8)
-	0x81, 0x02,                    //   INPUT (Data,Var,Abs)
-	0x95, 0x01,                    //   REPORT_COUNT 1(simultaneous keystrokes)
-	0x75, 0x08,                    //   REPORT_SIZE (8)
-	0x25, 0x65,                    //   LOGICAL_MAXIMUM (101)
-	0x19, 0x00,                    //   USAGE_MINIMUM (Reserved (no event indicated))
-	0x29, 0x65,                    //   USAGE_MAXIMUM (Keyboard Application)
-	0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
-	0xc0                           // END_COLLECTION
-};
-/*
-const uint8_t ascii_to_chinese_table[] ={
-	98,
-	89,
-	90,
-	91,
-	92,
-	93,
-	94,
-	95,
-	96,
-	97
-};
-*/
 void usb_init()
 {
 	usbInit();
@@ -151,6 +117,7 @@ usbMsgLen_t usbFunctionSetup(uchar data[8]) {
 		else if (rq->bRequest == USBRQ_HID_GET_IDLE) {usbMsgPtr=&idleRate;}
 		else if (rq->bRequest == USBRQ_HID_SET_IDLE) {idleRate = rq->wValue.bytes[1];}
 	}
+
 	if ((rq->bmRequestType & USBRQ_TYPE_MASK) ==USBRQ_TYPE_VENDOR) {
 		if (rq->bRequest == 0x16) {
 			eeprom_busy_wait();
@@ -175,7 +142,39 @@ usbMsgLen_t usbFunctionSetup(uchar data[8]) {
 			PORTB&= ~(1<<1);
 		return 0;}
 	}
+	
 	return 0;
+}
+void usbFunctionWriteOut(uchar *data, uchar len){
+	if(len==8){
+		if(data[0]==0xFF && data[1]==0xF1){
+			pressing=0;
+			return;
+		}
+		if(data[0]==0xFF && data[1]==0xF2){
+			pressing=1;
+			return;
+		}
+		PORTB|=(1<<1);
+		usbWord_t data1,data2,data3,data4;
+		data1.bytes[0]=data[0];data1.bytes[1]=data[1];
+		data2.bytes[0]=data[2];data2.bytes[1]=data[3];
+		data3.bytes[0]=data[4];data3.bytes[1]=data[5];
+		data4.bytes[0]=data[6];data4.bytes[1]=data[7];
+		if(data1.word<510){
+			eeprom_busy_wait();
+			eeprom_write_word ((uint16_t *)data1.word,data2.word);
+		}
+		if(data1.word+2<510){
+			eeprom_busy_wait();
+			eeprom_write_word ((uint16_t *)(data1.word+2),data3.word);
+		}
+		if(data1.word+4<510){
+			eeprom_busy_wait();
+			eeprom_write_word ((uint16_t *)(data1.word+4),data4.word);
+		}
+		PORTB&= ~(1<<1);
+	}
 }
 int setup(void){
 	
