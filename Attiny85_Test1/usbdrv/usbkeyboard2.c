@@ -176,27 +176,22 @@ void usbFunctionWriteOut(uchar *data, uchar len){
 		PORTB&= ~(1<<1);
 	}
 }
-int setup(void){
-	
+int setup(void){	
 	DDRB &= ~(1<<0);
-	DDRB |= (1<<1);
-	DDRB &= ~(1<<2);
-
+	DDRB &= ~(1<<1);
 	PORTB|= (1<<0);
-	PORTB&= ~(1<<1);
-	PORTB|= (1<<2);
-	
+	PORTB|= (1<<1);	
 	usb_init();
 	uint8_t sign0=0;
 	while (1)
 	{
+	usbPoll();
 		if((PINB&(1<<0))==0)
 		{
 			if(sign0==0 && pressing)keyPrintWord2();
 			sign0=0x20;
 		}
-		if(sign0>0)sign0--;
-		usbPoll();
+		if(sign0>0)sign0--;	
 	}
 	return 0;
 }
