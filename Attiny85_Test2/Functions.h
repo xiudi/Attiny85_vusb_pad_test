@@ -29,8 +29,8 @@ void Close_LED();
 void LED();
 #define ROWS  1
 #define COLS  2
-#define _delay_after 0x0A
-#define _delay_before 0x04
+#define _delay_after 0x90
+#define _delay_before 0x40
 uint8_t keymask[ROWS][COLS];
 uint8_t hexaKeys1[ROWS][COLS];
 uint8_t hexaKeys0[ROWS][COLS];
