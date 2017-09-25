@@ -8,7 +8,7 @@ uint8_t r,c;
 uint8_t i,FN;
 uint8_t delay_after=0;//backswing
 uint8_t delay_before=0;//windup
-uint16_t delayval,delayval2;
+uint16_t delayval;
 uint8_t cindex[WS2812_COUNT]={0,0};
 uint8_t ledmacro=0;
 uint8_t rowPins[ROWS]={0xFF};
@@ -36,7 +36,6 @@ void init_LED(){
 	if(Maxdelay<0x0800)Maxdelay=0x0800;
 }
 void LED(){
-if(delayval2){delayval2--;return;}//用于暂时冻结rgb
 	if(delayval>=Maxdelay){
 		if(ledmacro & (1<<1)){
 			for(uint8_t i=0;i<WS2812_COUNT;i++){
@@ -58,8 +57,7 @@ if(delayval2){delayval2--;return;}//用于暂时冻结rgb
 }
 void Open_LED(){
 for(uint8_t i=0;i<WS2812_COUNT;i++){
-if(keyboard_buffer.enable_pressing==1){WS2812SetRGB(i,255,0,0);delayval2=0x4000;}
-else{ WS2812SetRGB(i,0,0,255);}
+ WS2812SetRGB(i,0,0,255);
 }
 WS2812Send2();
 }

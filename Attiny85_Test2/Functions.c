@@ -54,10 +54,12 @@ void usbFunctionWriteOut(uchar *data, uchar len){
 			}
 			return;
 		}
+		/*
 		else if(data[0]==0xFF && data[1]==0xFA ){
 			Open_LED();
 			return;
 		}
+		*/
 		else if(keyboard_buffer.enable_pressing==0){
 			uint8_t i=0;
 			memset(&raw_report_out, 0,sizeof(raw_report_out));
