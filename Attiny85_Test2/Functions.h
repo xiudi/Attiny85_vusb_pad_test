@@ -17,7 +17,6 @@
 #define LSB(n) (n & 255)
 #define MSB(n) ((n >> 8) & 255)
 
-
 void pinMode(uint8_t IO,uint8_t value);
 void digitalWrite(uint8_t IO,uint8_t value);
 uint8_t digitalRead(uint8_t IO);

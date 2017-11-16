@@ -83,38 +83,14 @@ void usbFunctionWriteOut(uchar *data, uchar len){
 //////////////////////////////////////////////////////////////////////
 #if defined (__AVR_ATtiny45__) || defined (__AVR_ATtiny85__)
 void pinMode(uint8_t IO,uint8_t value){
-	switch(IO){
-		case 0: if(value){DDRB|= (1<<0);}else{DDRB &= ~(1<<0);}break;
-		case 1: if(value){DDRB|= (1<<1);}else{DDRB &= ~(1<<1);}break;
-		case 2: if(value){DDRB|= (1<<2);}else{DDRB &= ~(1<<2);}break;
-		case 3: if(value){DDRB|= (1<<3);}else{DDRB &= ~(1<<3);}break;
-		case 4: if(value){DDRB|= (1<<4);}else{DDRB &= ~(1<<4);}break;
-		case 5: if(value){DDRB|= (1<<5);}else{DDRB &= ~(1<<5);}break;
-		case 6: if(value){DDRB|= (1<<6);}else{DDRB &= ~(1<<6);}break;
-	}
+	if(value){DDRB|=(1<<IO);}else{DDRB &= ~(1<<IO);}
 }
 void digitalWrite(uint8_t IO,uint8_t value){
-	switch(IO){
-		case 0: if(value){PORTB|= (1<<0);}else{PORTB &= ~(1<<0);}break;
-		case 1: if(value){PORTB|= (1<<1);}else{PORTB &= ~(1<<1);}break;
-		case 2: if(value){PORTB|= (1<<2);}else{PORTB &= ~(1<<2);}break;
-		case 3: if(value){PORTB|= (1<<3);}else{PORTB &= ~(1<<3);}break;
-		case 4: if(value){PORTB|= (1<<4);}else{PORTB &= ~(1<<4);}break;
-		case 5: if(value){PORTB|= (1<<5);}else{PORTB &= ~(1<<5);}break;
-		case 6: if(value){PORTB|= (1<<6);}else{PORTB &= ~(1<<6);}break;
-	}
+if(value){PORTB|= (1<<IO);}else{PORTB &= ~(1<<IO);}	
 }
 uint8_t digitalRead(uint8_t IO){
 	uint8_t value=0;
-	switch(IO){
-		case 0:  value= PINB& (1<<0) ;break;
-		case 1:  value= PINB& (1<<1) ;break;
-		case 2:  value= PINB& (1<<2) ;break;
-		case 3:  value= PINB& (1<<3) ;break;
-		case 4:  value= PINB& (1<<4) ;break;
-		case 5:  value= PINB& (1<<5) ;break;
-		case 6:  value= PINB& (1<<6) ;break;
-	}
+    value= PINB& (1<<IO) ;
 	return value;
 }
 #endif
