@@ -7,6 +7,8 @@ Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Attiny85_Test1", "Attiny85_
 EndProject
 Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Attiny85_Test2", "Attiny85_Test2\Attiny85_Test2.cproj", "{D595D945-5A86-4A4E-BF7A-72D53866A035}"
 EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Attiny85_Test3", "Attiny85_Test3\Attiny85_Test3.cproj", "{20AE96E9-AF78-42CA-BD9F-EAD8130C5AF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|AVR = Debug|AVR
@@ -21,6 +23,10 @@ Global
 		{D595D945-5A86-4A4E-BF7A-72D53866A035}.Debug|AVR.Build.0 = Debug|AVR
 		{D595D945-5A86-4A4E-BF7A-72D53866A035}.Release|AVR.ActiveCfg = Release|AVR
 		{D595D945-5A86-4A4E-BF7A-72D53866A035}.Release|AVR.Build.0 = Release|AVR
+		{20AE96E9-AF78-42CA-BD9F-EAD8130C5AF0}.Debug|AVR.ActiveCfg = Debug|AVR
+		{20AE96E9-AF78-42CA-BD9F-EAD8130C5AF0}.Debug|AVR.Build.0 = Debug|AVR
+		{20AE96E9-AF78-42CA-BD9F-EAD8130C5AF0}.Release|AVR.ActiveCfg = Release|AVR
+		{20AE96E9-AF78-42CA-BD9F-EAD8130C5AF0}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
