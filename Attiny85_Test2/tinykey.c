@@ -19,8 +19,24 @@ uint8_t hexaKeys1[ROWS][COLS] ={{0,0}};
 uint8_t keymask[ROWS][COLS] = {{0x10,0x10}};
 uint8_t usb_macro_send(){
 	ledmacro^=macroreport;
-	if(macroreport&(1<<3)){
+	if(macroreport&MACRO3){
 		keyPrintWordEEP((uint16_t)32);
+		return 1;
+	}
+	if(macroreport&MACRO4){
+		keyPrintCtl(KEY_A);
+		return 1;
+	}
+	if(macroreport&MACRO5){
+		keyPrintCtl(KEY_X);
+		return 1;
+	}
+	if(macroreport&MACRO6){
+		keyPrintCtl(KEY_C);
+		return 1;
+	}
+	if(macroreport&MACRO7){
+		keyPrintCtl(KEY_V);
 		return 1;
 	}
 	return 0;

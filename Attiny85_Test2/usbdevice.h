@@ -187,10 +187,10 @@ extern const PROGMEM uint8_t  RawReport[];
 #define MACRO1 0x02//rgb led
 #define MACRO2 0x04//esc ~
 #define MACRO3 0x08//print eep
-#define MACRO4 0x10
-#define MACRO5 0x20
-#define MACRO6 0x40
-#define MACRO7 0x80
+#define MACRO4 0x10//L0¡¢L1//ctrl+A
+#define MACRO5 0x20//ctrl+X
+#define MACRO6 0x40//ctrl+C
+#define MACRO7 0x80//ctrl+V
 typedef struct {
 	uint8_t modifier;
 	uint8_t keycode[KEY_CODE_NUMBER];
@@ -255,6 +255,7 @@ uint8_t usb_mouse_send();
 uint8_t usb_keyboard_send_required();
 uint8_t usb_mouse_send_required();
 
+void keyPrintCtl(uint8_t data);
 void keyPrintChar(usbWord_t data);
 void keyPrintChinese(uint8_t data[5]);
 void keyPrintEnglish(uint8_t data);

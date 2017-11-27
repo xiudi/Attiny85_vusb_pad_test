@@ -10,7 +10,6 @@
 
 #ifndef __usbconfig_h_included__
 #define __usbconfig_h_included__
-
 /*
 General Description:
 This file is an example configuration (with inline documentation) for the USB
@@ -111,7 +110,7 @@ section at the end of this file).
  * Since the token is toggled BEFORE sending any data, the first packet is
  * sent with the oposite value of this configuration!
  */
-#define USB_CFG_IMPLEMENT_HALT          1
+#define USB_CFG_IMPLEMENT_HALT          0
 /* Define this to 1 if you also want to implement the ENDPOINT_HALT feature
  * for endpoint 1 (interrupt endpoint). Although you may not need this feature,
  * it is required by the standard. We have made it a config option because it
@@ -125,7 +124,7 @@ section at the end of this file).
  * (e.g. HID), but never want to send any data. This option saves a couple
  * of bytes in flash memory and the transmit buffers in RAM.
  */
-#define USB_CFG_INTR_POLL_INTERVAL      0x0A
+#define USB_CFG_INTR_POLL_INTERVAL      10
 /* If you compile a version with endpoint 1 (interrupt-in), this is the poll
  * interval. The value is in milliseconds and must not be less than 10 ms for
  * low speed devices.
@@ -134,12 +133,14 @@ section at the end of this file).
 /* Define this to 1 if the device has its own power supply. Set it to 0 if the
  * device is powered from the USB bus.
  */
-#define USB_CFG_MAX_BUS_POWER           0x32 //0xFA
+#define USB_CFG_MAX_BUS_POWER           100
 /* Set this variable to the maximum USB bus power consumption of your device.
  * The value is in milliamperes. [It will be divided by two since USB
  * communicates power requirements in units of 2 mA.]
  */
-#define USB_CFG_IMPLEMENT_FN_WRITE      1//
+
+#define USB_CFG_IMPLEMENT_FN_WRITE      0
+
 /* Set this to 1 if you want usbFunctionWrite() to be called for control-out
  * transfers. Set it to 0 if you don't need it and want to save a couple of
  * bytes.
@@ -229,30 +230,10 @@ section at the end of this file).
  */
 
 /* -------------------------- Device Description --------------------------- */
-#define VENDOR_ID       0xD850
-#define PRODUCT_ID      0x0102
-#define DEVICE_VER      0x0001
-#define USB_CFG_VENDOR_ID (VENDOR_ID & 0xFF), ((VENDOR_ID >> 8) & 0xFF)
-/* USB vendor ID for the device, low byte first. If you have registered your
- * own Vendor ID, define it here. Otherwise you may use one of obdev's free
- * shared VID/PID pairs. Be sure to read USB-IDs-for-free.txt for rules!
- * *** IMPORTANT NOTE ***
- * This template uses obdev's shared VID/PID pair for Vendor Class devices
- * with libusb: 0x16c0/0x5dc.  Use this VID/PID pair ONLY if you understand
- * the implications!
- */
-#define USB_CFG_DEVICE_ID (PRODUCT_ID & 0xFF), ((PRODUCT_ID >> 8) & 0xFF)
-/* This is the ID of the product, low byte first. It is interpreted in the
- * scope of the vendor ID. If you have registered your own VID with usb.org
- * or if you have licensed a PID from somebody else, define it here. Otherwise
- * you may use one of obdev's free shared VID/PID pairs. See the file
- * USB-IDs-for-free.txt for details!
- * *** IMPORTANT NOTE ***
- * This template uses obdev's shared VID/PID pair for Vendor Class devices
- * with libusb: 0x16c0/0x5dc.  Use this VID/PID pair ONLY if you understand
- * the implications!
- */
-#define USB_CFG_DEVICE_VERSION  0x01, 0x00
+
+#define USB_CFG_VENDOR_ID 0xDD, 0xDD
+#define USB_CFG_DEVICE_ID 0x12, 0x34
+#define USB_CFG_DEVICE_VERSION  0x00, 0x01
 /* Version number of the device: Minor number first, then major number.
  */
 #define USB_CFG_VENDOR_NAME     'z','i','a','n'
@@ -294,6 +275,7 @@ section at the end of this file).
  * CDC class is 2, use subclass 2 and protocol 1 for ACM
  */
 #define USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH    0
+
 /* Define this to the length of the HID report descriptor, if you implement
  * an HID device. Otherwise don't define it or define it to 0.
  * If you use this define, you must add a PROGMEM character array named
