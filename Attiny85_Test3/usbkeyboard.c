@@ -3,7 +3,14 @@
 uchar  reportBuffer[2];
 static uint8_t idleRate=0;
 uint8_t enable_pressing=1;
-
+ void _delay_n(uint8_t n)       //N ms精确延时nms
+ {
+	 uint8_t i=0;
+	 for (i=0;i<n;i++)
+	 {
+		 _delay_ms(100);
+	 }
+ }
 void usb_init()
 {
 	usbInit();
@@ -90,14 +97,14 @@ void keyPrintChar(usbWord_t data){
 
 	}
 }
-void keyPrintWordEEP(uint16_t address_t){
+void keyPrintWordEEP(uint16_t address_t,uint16_t len){
+//len表示字符个数
 	enable_pressing=0;
 	reportBuffer[0] = 0;
 	reportBuffer[1] =0;
 	uint16_t i=0;
-	uint16_t len=eeprom_read_word((uint16_t *)address_t);
 	for(i=0;i<len;i++){
-		uint16_t address=address_t+i*2+2;
+		uint16_t address=address_t+i*2;
 		if(address>(uint16_t)511)break;
 		while(1){
 			if(usbConfiguration && usbInterruptIsReady()){
@@ -109,40 +116,37 @@ void keyPrintWordEEP(uint16_t address_t){
 	}
 	enable_pressing=1;
 }
+void keyPrintMacro2XEEP(uint16_t address_t,uint16_t len){
+	//len表示macro个数
+	enable_pressing=0;
+	reportBuffer[0] = 0;
+	reportBuffer[1] =0;
+	uint16_t i=0;
+	for(i=0;i<len;i++){
+		uint16_t address=address_t+i*3;
+		if(address>(uint16_t)511)break;
+		while(1){
+			if(usbConfiguration && usbInterruptIsReady()){
+				uint8_t time_t=eeprom_read_byte((uint8_t *)address);
+				reportBuffer[0] = eeprom_read_byte((uint8_t *)(address+1));
+				reportBuffer[1] = eeprom_read_byte((uint8_t *)(address+2));
+				usbSetInterrupt(reportBuffer, sizeof(reportBuffer));
+				_delay_n(time_t);
+				break;
+			}usbPoll();
+		}		
+	}
+	enable_pressing=1;
+}
 usbMsgLen_t usbFunctionSetup(uchar data[8]) {
 	usbRequest_t    *rq = (usbRequest_t *)((void *)data);
-	usbMsgPtr = reportBuffer; //
 	if ((rq->bmRequestType & USBRQ_TYPE_MASK) == USBRQ_TYPE_CLASS) {
-		if (rq->bRequest == USBRQ_HID_GET_REPORT) {return 0;}
+		if (rq->bRequest == USBRQ_HID_GET_REPORT) {
+		usbMsgPtr = reportBuffer;return sizeof(reportBuffer);}
+		else if(rq->bRequest == USBRQ_HID_SET_REPORT){return USB_NO_MSG;}
 		else if (rq->bRequest == USBRQ_HID_GET_IDLE) {usbMsgPtr=&idleRate;}
 		else if (rq->bRequest == USBRQ_HID_SET_IDLE) {idleRate = rq->wValue.bytes[1];}
 	}
-	/*
-	if ((rq->bmRequestType & USBRQ_TYPE_MASK) ==USBRQ_TYPE_VENDOR) {
-		if (rq->bRequest == 0x16) {
-			eeprom_busy_wait();
-			eeprom_write_word ((uint16_t *)rq->wIndex.word,rq->wValue.word);
-			PORTB|=(1<<1);
-		return 0;}
-		if (rq->bRequest == 0x08) {
-			eeprom_busy_wait();
-			eeprom_write_byte ((uint8_t *)rq->wIndex.word,rq->wValue.bytes[0]);
-			PORTB|=(1<<1);
-		return 0;}
-		if (rq->bRequest == 0x03) {
-			//结束写
-			eeprom_busy_wait();
-			PORTB&= ~(1<<1);
-			enable_pressing=1;
-		return 0;}
-		if (rq->bRequest == 0x01) {
-			//开始写
-			enable_pressing=0;
-			eeprom_is_ready();
-			PORTB&= ~(1<<1);
-		return 0;}
-	}	
-	*/
 	return 0;
 }
 void usbFunctionWriteOut(uchar *data, uchar len){
@@ -188,7 +192,8 @@ int setup(void){
 	usbPoll();
 		if((PINB&(1<<0))==0)
 		{
-			if(sign0==0 && enable_pressing)keyPrintWordEEP(0);
+			if(sign0==0 && enable_pressing)
+			//keyPrintWordEEP(0);
 			sign0=0x20;
 		}
 		if(sign0>0)sign0--;	

@@ -29,5 +29,5 @@ press->send keys
 release->send blank
 4 macro
 if(type&0xF0!=0)
-uint16_t time+macro
+(uint8_t)time+ macro
 */

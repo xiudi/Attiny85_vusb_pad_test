@@ -11,7 +11,8 @@
 
 uint8_t    reportBuffer[2];
 void usb_init();
-void keyPrintWordEEP(uint16_t address_t);
+void keyPrintWordEEP(uint16_t address_t,uint16_t len);
+void keyPrintMacro2XEEP(uint16_t address_t,uint16_t len);
 int setup();
 
 #endif
