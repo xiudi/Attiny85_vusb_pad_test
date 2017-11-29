@@ -4,13 +4,7 @@
 #include <avr/io.h>
 #include <stdlib.h>
 #include "avr/pgmspace.h"
-
-#define WS2812_COUNT	2
-#define WS2812_PORT		PORTB
-#define WS2812_DDR		DDRB
-#define WS2812_MASK		(1<<2)
-#define WS2812_SAVE		1			/*Power saver, divide light level with this.*/
-
+#include "Functions.h"
 
 #define nop() __asm__ __volatile__ ("nop")
 //ÄÚÇ¶»ã±àÖ¸Áînop ÑÓÊ± 0.25us

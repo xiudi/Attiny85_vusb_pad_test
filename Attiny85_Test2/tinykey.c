@@ -4,23 +4,22 @@
 #include <string.h>
 #include "ws2812.h"
 #include "Functions.h"
-uint8_t r,c;
-uint8_t i,FN;
+uint8_t r,c,i,FN;
 uint8_t delay_after=0;//backswing
 uint8_t delay_before=0;//windup
+uint8_t ledmacro=0;
 uint16_t delayval;
 uint8_t cindex[WS2812_COUNT]={0,0};
-uint8_t ledmacro=0;
 uint8_t rowPins[ROWS]={0xFF};
 uint8_t colPins[COLS]={0,1};
-uint16_t Maxdelay= 0x1000;
 uint8_t hexaKeys0[ROWS][COLS] = {{KEY_Z,KEY_X}};
 uint8_t hexaKeys1[ROWS][COLS] ={{0,0}};
 uint8_t keymask[ROWS][COLS] = {{0x10,0x10}};
 uint8_t usb_macro_send(){
 	ledmacro^=macroreport;
 	if(macroreport&MACRO3){
-		keyPrintWordEEP((uint16_t)32);
+		keyPrintWordEEP(addPrint+6);
+		//exe program upload 6 bytes once 
 		return 1;
 	}
 	if(macroreport&MACRO4){
@@ -45,31 +44,28 @@ void init_LED(){
 	WS2812Setup();delayval=Maxdelay;
 	WS2812Clear();
 	WS2812Send2();
-	ledmacro=(uint8_t)eeprom_read_word((uint16_t *)24);
-	cindex[0]=(uint8_t)eeprom_read_word((uint16_t *)26);
-	cindex[1]=(uint8_t)eeprom_read_word((uint16_t *)28);
-	Maxdelay=eeprom_read_word((uint16_t *)30);
-	if(Maxdelay<0x0800)Maxdelay=0x0800;
+	if((RGB_Type&0xF0)==0x10)ledmacro=0x02;
 }
 void LED(){
 	if(delayval>=Maxdelay){
 		if(ledmacro & (1<<1)){
 			for(uint8_t i=0;i<WS2812_COUNT;i++){
-			if(cindex[i]>=WS2812ColorCount) cindex[i]=0;
-				uint8_t r=pgm_read_byte(Rcolors+cindex[i]);
-				uint8_t g=pgm_read_byte(Gcolors+cindex[i]);
-				uint8_t b=pgm_read_byte(Bcolors+cindex[i]);
-				WS2812SetRGB(i,r,g,b);
-				if(Maxdelay>=0x0800)cindex[i]++;			
+				if((RGB_Type&0x0F)==0x01){
+					if(cindex[i]>=WS2812ColorCount) cindex[i]=0;
+					uint8_t r=pgm_read_byte(Rcolors+cindex[i]);
+					uint8_t g=pgm_read_byte(Gcolors+cindex[i]);
+					uint8_t b=pgm_read_byte(Bcolors+cindex[i]);
+					WS2812SetRGB(i,r,g,b);
+					cindex[i]++;
+				}
+				else if((RGB_Type&0x0F)==0x00){
+					WS2812SetRGB(i,WS2812fix[i*3],WS2812fix[i*3+1],WS2812fix[i*3+2]);
+				}
 			}
-			}else{
-			WS2812Clear();
-		}
+		}else{WS2812Clear();}
 		delayval--;
 		WS2812Send2();
-		}else{
-		if(delayval){delayval--;}else {delayval=Maxdelay;}
-	}
+	}else{if(delayval){delayval--;}else {delayval=Maxdelay;}}
 }
 void Open_LED(){
 for(uint8_t i=0;i<WS2812_COUNT;i++){

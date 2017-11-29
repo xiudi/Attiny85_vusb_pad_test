@@ -10,6 +10,17 @@
 #include <avr/io.h>
 #include "usbdevice.h"
 
+#define ROWS  1
+#define COLS  2
+#define WS2812_COUNT	2
+//ws2812
+#define WS2812_PORT		PORTB
+#define WS2812_DDR		DDRB
+#define WS2812_MASK		(1<<2)
+#define WS2812_SAVE		1
+#define Maxdelay 0x1000
+////////
+
 #define LOW 0
 #define HIGH 1
 #define INPUT 0
@@ -26,8 +37,7 @@ void init_LED();
 void Open_LED();
 void Close_LED();
 void LED();
-#define ROWS  1
-#define COLS  2
+
 #define _delay_after 0x90
 #define _delay_before 0x40
 uint8_t keymask[ROWS][COLS];
@@ -40,6 +50,10 @@ uint8_t colPins[COLS];
 #define add3 add2+COLS //13
 #define add4 add3+(ROWS*COLS) //15
 #define add5 add4+(ROWS*COLS) //17
+#define addRGB add5+(ROWS*COLS) //19
+#define addPrint addRGB+(WS2812_COUNT*3) //25
+uint8_t WS2812fix[(WS2812_COUNT * 3)];
+uint8_t RGB_Type;// bit1-> 0 off 1 on ;bit0-> 0 fix£¬1 Rainbow
 void ResetMatrix(uint8_t mask,uint16_t address);
 void ResetMatrixFormEEP();
 int init_main();
