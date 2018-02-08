@@ -159,13 +159,13 @@ int init_main(void) {
 	usb_init();
 	////////////////////////////////////////////////
 	init_IO();
-	while (1) {
-		init_LED();
+	while (1) {		
 		keyboard_buffer.enable_pressing=1;
 		releaseAllkeyboardkeys();
 		releaseAllmousekeys();
 		ClearMacro();
 		ResetMatrixFormEEP();
+		init_LED();
 		_delay_ms(500);
 		usb_keyboard_send();
 		while (1) {

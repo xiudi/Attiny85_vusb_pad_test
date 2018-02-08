@@ -24,14 +24,14 @@ void ResetMatrixFormEEP(){
 	uint16_t address_col=eeprom_read_word((uint16_t *)2);
 	uint16_t address_hexakeys0=eeprom_read_word((uint16_t *)4);
 	uint16_t address_hexaKeys1=eeprom_read_word((uint16_t *)6);
-	uint16_t address_keymask=eeprom_read_word((uint16_t *)8);
-	uint16_t j;
-	///////////////////////////////////
+	uint16_t address_keymask=eeprom_read_word((uint16_t *)8);	
 	if(address_row!=add1){return;}
 	if(address_col!=add2){return;}
 	if(address_hexakeys0!=add3){return;}
 	if(address_hexaKeys1!=add4){return;}
 	if(address_keymask!=add5){return;}
+	//Confirm type of keyboard 
+	uint16_t j;
 	for( j=0;j<ROWS;j++){rowPins[j]=eeprom_read_byte((uint8_t *)(j+address_row));}
 	for( j=0;j<COLS;j++){colPins[j]=eeprom_read_byte((uint8_t *)(j+address_col));}
 	ResetMatrix(0,address_hexakeys0);
