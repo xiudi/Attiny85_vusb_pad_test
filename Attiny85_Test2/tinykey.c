@@ -44,7 +44,7 @@ void init_LED(){
 	WS2812Setup();delayval=Maxdelay;
 	WS2812Clear();
 	WS2812Send2();
-	if((RGB_Type&0xF0)==0x10)ledmacro=0x02;
+	if((RGB_Type&0xF0)==0x10){ledmacro|=(1<<1);}else{ledmacro&= ~(1<<1);}
 }
 void LED(){
 	if(delayval>=Maxdelay){
@@ -164,9 +164,9 @@ int init_main(void) {
 		releaseAllkeyboardkeys();
 		releaseAllmousekeys();
 		ClearMacro();
-		ResetMatrixFormEEP();
-		init_LED();
+		ResetMatrixFormEEP();		
 		_delay_ms(500);
+		init_LED();
 		usb_keyboard_send();
 		while (1) {
 			usbPoll();
